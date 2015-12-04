@@ -1,0 +1,29 @@
+<div class="col-md-4">
+  <p><span class="text_bold">Title vacancy :</span>
+    <%=  vacancy.title%>
+  </p>
+  <p><span class="text_bold">Country :</span>
+    <%=  vacancy.country%>
+  </p>
+  <p><span class="text_bold">City :</span>
+    <%=  vacancy.city%>
+  </p>
+  <p><span class="text_bold">Link to company :</span>
+    <%= vacancy.company.link%>
+  </p>
+  <p>
+    <span class="text_bold">Description :</span>
+    <%= vacancy.description %>
+  </p>
+  <p>
+    <span class="text_bold">Deadline :</span>
+    <%= vacancy.deadline %>
+  </p>
+  <p>
+    <%=link_to 'Back',admin_vacancies_path,class: 'btn btn-sm btn-primary' %>
+    <%=link_to 'Edit',edit_admin_vacancy_path(vacancy),class: 'btn btn-sm btn-warning' %>
+  </p>
+
+</div>
+
+

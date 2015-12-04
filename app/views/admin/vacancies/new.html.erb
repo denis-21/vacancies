@@ -1,0 +1,12 @@
+<div class="col-md-6">
+  <%=render 'shared/error_msg', object: new_vacancy%>
+  <%= form_for new_vacancy,url: admin_vacancies_path, method: :post  do |f| %>
+
+
+      <%= render 'form', f: f %>
+
+      <div class="form-group">
+        <%= f.submit 'ADD', class: 'btn btn-success' %>
+      </div>
+  <% end %>
+</div>

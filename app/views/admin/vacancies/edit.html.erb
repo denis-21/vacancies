@@ -1,0 +1,12 @@
+<p><%=link_to 'Back',admin_vacancies_path,class: 'btn btn-sm btn-primary' %></p>
+<div class="col-md-6">
+  <%=render 'shared/error_msg', object: vacancy%>
+  <%= form_for vacancy,url: admin_vacancy_path, method: :put  do |f| %>
+
+      <%= render 'form', f: f %>
+
+      <div class="form-group">
+        <%= f.submit 'Save', class: 'btn btn-success' %>
+      </div>
+  <% end %>
+</div>

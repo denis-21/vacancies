@@ -1,0 +1,24 @@
+<div class="col-md-4">
+  <p><span class="text_bold">Name company :</span>
+    <%=  company.name %>
+  </p>
+  <p><span class="text_bold">Link :</span>
+    <%=  company.link %>
+  </p>
+
+  <p>List of vacancies :</p>
+  <ul>
+    <% company.vacancies.each do |vacancy| %>
+      <li><%= link_to vacancy.title, admin_vacancy_path(vacancy)%></li>
+    <% end %>
+  </ul>
+
+
+  <p>
+    <%=link_to 'Back',admin_companies_path,class: 'btn btn-sm btn-primary' %>
+    <%=link_to 'Edit',edit_admin_company_path(company),class: 'btn btn-sm btn-warning' %>
+  </p>
+
+</div>
+
+
