@@ -17,7 +17,7 @@
   </p>
   <p>
     <span class="text_bold">Deadline :</span>
-    <%= vacancy.deadline %>
+    <%= vacancy.deadline.to_s(:human) %>
   </p>
   <p>
     <%=link_to 'Back',admin_vacancies_path,class: 'btn btn-sm btn-primary' %>

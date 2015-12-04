@@ -28,7 +28,7 @@
             <%= vacancy.city %>
           </td>
           <td class="<%= vacancy.status %>">
-            <%= vacancy.deadline %>
+            <%= vacancy.deadline.to_s(:human) %>
           </td>
           <td>
             <%=link_to 'delete',admin_vacancy_path(vacancy),method: :delete,data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-danger' %>
