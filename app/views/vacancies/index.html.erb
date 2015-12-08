@@ -1,5 +1,5 @@
-<div>
-  <%=form_tag search_vacancies_path, method: :get, id: 'search-form',class: 'navbar-form' do%>
+<div class="margin_bottom">
+  <%=form_tag search_vacancies_path, method: :get, id: 'search-form',class: 'form-inline' do%>
 
       <div class="form-group">
 
@@ -14,7 +14,7 @@
         <%=text_field_tag 'city', params[:city], placeholder: 'Enter city', class: 'form-control' %>
       </div>
 
-      <%=submit_tag 'Search', class: 'btn btn-default' %>
+      <%=submit_tag 'Search', class: 'btn btn-primary' %>
 
   <%end%>
 </div>

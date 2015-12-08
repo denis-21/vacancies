@@ -1,25 +1,39 @@
 
-<div class="col-md-4">
-  <p><span class="text_bold">Title vacancy :</span>
-    <%=  vacancy.title%>
-  </p>
-  <p><span class="text_bold">Country :</span>
-    <%=  vacancy.country%>
-  </p>
-  <p><span class="text_bold">City :</span>
-    <%=  vacancy.city%>
-  </p>
-  <p><span class="text_bold">Link to company :</span>
-    <%=  vacancy.company.link%>
+<div class="col-md-9 vacancy_show" >
+  <div class="add-top">
+    <span class="text-muted">Vacancy on&nbsp;<%= vacancy.created_at.to_s(:human) %></span>
+  </div>
+  <h1><%=  vacancy.title%></h1>
+
+
+  <p>
+    <div class="col-md-3 text_bold text-muted">Country :</div>
+
+    <span class="text_black text_bold"><%=  vacancy.country%></span>
   </p>
   <p>
-    <span class="text_bold">Description :</span>
+     <div class="col-md-3 text_bold text-muted">City :</div>
+
+    <span class="text_black text_bold"><%=  vacancy.city%></span>
+  </p>
+  <p>
+    <div class="col-md-3 text_bold text-muted">Link to company :</div>
+
+    <span class="text_black text_bold"><%=  vacancy.company.link%></span>
+  </p>
+  <p>
+    <div class="col-md-3 text_bold text-muted">Deadline :</div>
+
+    <span class="text_black text_bold"><%= vacancy.deadline.to_s(:human) %></span>
+  </p>
+
+
+  <h2 class="side-lines"><span>Description vacancy</span></h2>
+  <div class="desc_vacancy">
     <%= vacancy.description %>
-  </p>
-  <p>
-    <span class="text_bold">Deadline :</span>
-    <%= vacancy.deadline.to_s(:human) %>
-  </p>
+  </div>
+
+
 </div>
 
 

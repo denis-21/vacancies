@@ -10,3 +10,71 @@
 .live{
   background-color: lightgreen;
 }
+.margin_bottom{
+  margin-bottom: 15px;
+}
+.vacancy_show{
+  border: 2px solid #e9ebed;
+}
+
+.vacancy_show h1{
+  font-weight: bold;
+}
+.text_black{
+  color: #000;
+}
+h2.side-lines {
+  border-bottom: 1px solid #e9ebed;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  padding-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+h2.side-lines span {
+  background-color: #fff;
+  color: #6b7886;
+  display: inline-block;
+  padding: 0 15px;
+  position: relative;
+  bottom: -8px;
+}
+.desc_vacancy{
+  min-height: 100px;
+  padding-bottom: 15px;
+}
+.add-top {
+  margin-top: 20px;
+}
+.navbar-custom {
+  background-color:#123EAB;
+  color:#ffffff;
+  border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+  color:#fff;
+  padding-left:20px;
+  padding-right:20px;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #06246F;
+}
+
+.navbar-custom .navbar-brand {
+  color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+  background-color:#eeeeee;
+}
+.navbar-custom .icon-bar {
+  background-color:#06246F;
+}

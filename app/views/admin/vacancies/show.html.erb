@@ -1,29 +1,42 @@
-<div class="col-md-4">
-  <p><span class="text_bold">Title vacancy :</span>
-    <%=  vacancy.title%>
-  </p>
-  <p><span class="text_bold">Country :</span>
-    <%=  vacancy.country%>
-  </p>
-  <p><span class="text_bold">City :</span>
-    <%=  vacancy.city%>
-  </p>
-  <p><span class="text_bold">Link to company :</span>
-    <%= vacancy.company.link%>
+<p>
+  <%=link_to 'Back',admin_vacancies_path,class: 'btn btn-sm btn-primary' %>
+  <%=link_to 'Edit',edit_admin_vacancy_path(vacancy),class: 'btn btn-sm btn-warning' %>
+</p>
+<div class="col-md-9 vacancy_show" >
+  <div class="add-top">
+    <span class="text-muted">Vacancy on&nbsp;<%= vacancy.created_at.to_s(:human) %></span>
+  </div>
+  <h1><%=  vacancy.title%></h1>
+
+  <p>
+      <div class="col-md-3 text_bold text-muted">Country :</div>
+
+      <span class="text_black text_bold"><%=  vacancy.country%></span>
   </p>
   <p>
-    <span class="text_bold">Description :</span>
-    <%= vacancy.description %>
+      <div class="col-md-3 text_bold text-muted">City :</div>
+
+      <span class="text_black text_bold"><%=  vacancy.city%></span>
   </p>
   <p>
-    <span class="text_bold">Deadline :</span>
-    <%= vacancy.deadline.to_s(:human) %>
+      <div class="col-md-3 text_bold text-muted">Link to company :</div>
+
+      <span class="text_black text_bold"><%=  vacancy.company.link%></span>
   </p>
   <p>
-    <%=link_to 'Back',admin_vacancies_path,class: 'btn btn-sm btn-primary' %>
-    <%=link_to 'Edit',edit_admin_vacancy_path(vacancy),class: 'btn btn-sm btn-warning' %>
+      <div class="col-md-3 text_bold text-muted">Deadline :</div>
+
+      <span class="text_black text_bold"><%= vacancy.deadline.to_s(:human) %></span>
   </p>
 
+
+  <h2 class="side-lines"><span>Description vacancy</span></h2>
+  <div class="desc_vacancy">
+    <%= vacancy.description %>
+  </div>
+
+
 </div>
+
 
 

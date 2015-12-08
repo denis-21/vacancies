@@ -18,7 +18,6 @@ class Admin::CompaniesController < ApplicationController
   end
 
   def create
-    binding.pry
     if new_company.update_attributes company_params
       redirect_to (:admin_companies)
     else
