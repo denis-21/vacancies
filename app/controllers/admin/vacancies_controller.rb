@@ -25,7 +25,7 @@ class Admin::VacanciesController < ApplicationController
 
   def update
     if vacancy.update_attributes vacancy_params
-      redirect_to (:admin_vacancies)
+      redirect_to admin_vacancy_url vacancy
     else
       render :edit
     end

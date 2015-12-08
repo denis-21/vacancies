@@ -1,0 +1,15 @@
+<div class="col-md-12">
+  <ul class="logotypes-squares">
+    <% companies.each do |company| %>
+      <li>
+        <%= link_to company_path(company) do %>
+            <p>
+              <h3><b><%= company.name %></b></h3>
+              <br>
+              <span class="text-gray-light"> Count vacancies : <%= company.vacancies.active.count%></span>
+            </p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

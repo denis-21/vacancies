@@ -1,0 +1,23 @@
+<div id="vacancies" class="col-md-12">
+  <% vacancies.each do |vacancy| %>
+      <div class="list-group">
+        <%= link_to  vacancy_path(vacancy) ,class: 'list-group-item' do %>
+            <h2 class="list-group-item-heading"> <%= vacancy.title %></h2>
+
+            <p> <span class="text_bold text-primary"> <%= vacancy.company.name %></span>
+              <span> <span class="text-muted ">· </span> <%= vacancy.country %></span>
+              <span> <span class="text-muted ">· </span> <%= vacancy.city %></span>
+              <span class="text-warning"> <span class="text-muted ">· </span> Open to: <%= vacancy.deadline.to_s(:human) %></span></p>
+
+            <p class="list-group-item-text"><%=  truncate(vacancy.description,length: 300) %></p>
+
+        <% end %>
+      </div>
+  <% end %>
+</div>
+
+<div class="col-md-12">
+    <div class="text-center">
+      <%= paginate vacancies %>
+    </div>
+</div>

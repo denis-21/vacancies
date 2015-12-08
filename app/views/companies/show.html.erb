@@ -1,0 +1,28 @@
+<div class="col-md-12 margin_bottom" >
+  <%=link_to 'Back',companies_path,class: 'btn btn-sm btn-primary' %>
+</div>
+
+<div class="col-md-12 block_show">
+
+  <h1><%=  company.name%></h1>
+
+  <p>
+    <div class="col-md-3 text_bold text-muted">Web-site :</div>
+
+    <span class="text_black text_bold"><%= company.link%></span>
+  </p>
+
+  <h2 class="side-lines"><span>Open vacancies :</span></h2>
+  <div class="desc_vacancy col-md-12">
+    <ul  class="list-group">
+      <% company.vacancies.active.each do |vacancy| %>
+          <li class="list-group-item"><%= link_to vacancy.title, vacancy_path(vacancy)%>
+            <span class="badge">Open to: <%=vacancy.deadline.to_s(:human)%></span>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
+
+

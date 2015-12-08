@@ -1,58 +1,19 @@
-<div class="margin_bottom">
-  <%=form_tag search_vacancies_path, method: :get, id: 'search-form',class: 'form-inline' do%>
 
-      <div class="form-group">
-
-        <%= select_tag('company_id',options_from_collection_for_select(companies, :id, :name, params[:company_id]),include_blank: 'Select company',class: 'form-control') %>
-      </div>
-
-      <div class="form-group">
-        <%= select_tag('country', options_for_select(countries,params[:country]),include_blank: 'Select city', class: 'form-control') %>
-      </div>
-
-      <div class="form-group">
-        <%=text_field_tag 'city', params[:city], placeholder: 'Enter city', class: 'form-control' %>
-      </div>
-
-      <%=submit_tag 'Search', class: 'btn btn-primary' %>
-
+<div class="search_bar margin_bottom">
+  <div class="col-md-8">
+    <%=form_tag search_vacancies_path, method: :get, id: 'search-form',class: 'form-inline' do%>
+        <%= render 'search_form', companies: companies,countries:countries %>
   <%end%>
+  </div>
+  <div class="col-md-4">
+      <span class="pull-right">
+        <%= form_tag vacancies_path, method: :get, id: 'limit_form', remote: true do %>
+          <%= select_tag('limit', options_for_select([1,5,10,20],params[:limit] || 5), class: 'form-control') %>
+      <% end %>
+      </span>
+  </div>
 </div>
 
-<table class="table table-striped table-bordered">
-  <thead>
-  <tr>
-    <th>Job Title</th>
-    <th>Company</th>
-    <th>Country</th>
-    <th>City</th>
-    <th>Deadline</th>
-
-  </tr>
-  </thead>
-  <tbody>
-  <% vacancies.each do |vacancy| %>
-      <tr>
-        <td>
-          <%= link_to vacancy.title, vacancy_path(vacancy)%>
-        </td>
-        <td>
-          <%= vacancy.company.name %>
-        </td>
-        <td>
-          <%= vacancy.country %>
-        </td>
-        <td>
-          <%= vacancy.city %>
-        </td>
-        <td>
-          <%= vacancy.deadline.to_s(:human) %>
-        </td>
-      </tr>
-
-  <% end %>
-  </tbody>
-</table>
-
-
-
+  <div class="content">
+    <%= render 'list_vacancies', vacancies: vacancies %>
+  </div>

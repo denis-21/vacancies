@@ -13,11 +13,23 @@
 .margin_bottom{
   margin-bottom: 15px;
 }
-.vacancy_show{
+.margin_bottom_5{
+  margin-bottom: 5px;
+}
+.search_bar{
+  background-color: #65a6d1;
+  height: 50px;
+  padding-top: 8px;
+}
+#vacancies {
+  padding: 0;
+}
+
+.block_show{
   border: 2px solid #e9ebed;
 }
 
-.vacancy_show h1{
+.block_show h1{
   font-weight: bold;
 }
 .text_black{
@@ -49,7 +61,7 @@ h2.side-lines span {
   margin-top: 20px;
 }
 .navbar-custom {
-  background-color:#123EAB;
+  background-color:#3E97D1;
   color:#ffffff;
   border-radius:0;
 }

@@ -1,4 +1,4 @@
-<p><%=link_to 'Back',admin_companies_path,class: 'btn btn-sm btn-primary' %></p>
+<p><%=link_to 'Back',admin_company_path(company),class: 'btn btn-sm btn-primary' %></p>
 <div class="col-md-6">
   <%=render 'shared/error_msg', object: company%>
   <%= form_for company,url: admin_company_path, method: :put  do |f| %>

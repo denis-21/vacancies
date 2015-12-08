@@ -1,23 +1,35 @@
-<div class="col-md-4">
-  <p><span class="text_bold">Name company :</span>
-    <%=  company.name %>
-  </p>
-  <p><span class="text_bold">Link :</span>
-    <%=  company.link %>
-  </p>
+<div class="col-md-12 margin_bottom" >
+  <%=link_to 'Back',admin_companies_path,class: 'btn btn-sm btn-primary' %>
+  <%=link_to 'Edit',edit_admin_company_path(company),class: 'btn btn-sm btn-warning' %>
+  <%=link_to 'delete',admin_company_path(company),method: :delete,data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-danger pull-right' %>
+</div>
 
-  <p>List of vacancies :</p>
-  <ul>
-    <% company.vacancies.each do |vacancy| %>
-      <li><%= link_to vacancy.title, admin_vacancy_path(vacancy)%></li>
-    <% end %>
-  </ul>
 
+<div class="col-md-12 block_show">
+
+  <h1><%=  company.name%></h1>
 
   <p>
-    <%=link_to 'Back',admin_companies_path,class: 'btn btn-sm btn-primary' %>
-    <%=link_to 'Edit',edit_admin_company_path(company),class: 'btn btn-sm btn-warning' %>
+    <div class="col-md-3 text_bold text-muted">Web-site :</div>
+
+    <span class="text_black text_bold"><%=  company.link%></span>
   </p>
+
+  <h2 class="side-lines"><span>List of vacancies :</span></h2>
+  <div class="desc_vacancy col-md-12">
+    <ul  class="list-group">
+      <% company.vacancies.each do |vacancy| %>
+          <li class="list-group-item"><%= link_to vacancy.title, admin_vacancy_path(vacancy)%>
+            <span class="badge"><%=vacancy.deadline.to_s(:human)%></span>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+
+
+
+
+
 
 </div>
 

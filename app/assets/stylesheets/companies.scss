@@ -1,0 +1,36 @@
+// Place all the styles related to the companies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.logotypes-squares {
+  list-style: outside none none;
+  margin: 0;
+  padding-left: 0;
+  position: relative;
+}
+.logotypes-squares li {
+  display: block;
+  float: left;
+  margin-bottom: -1px;
+  margin-right: -1px;
+  max-width: 25%;
+  min-width: 235px;
+  padding: 0;
+  width: 245px;
+}
+.logotypes-squares li a {
+  background-color: #fff;
+  border: 1px solid #e9ebed;
+  display: block;
+  height: 185px;
+  padding: 40px 10px 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+  z-index: 10;
+}
+.text-gray-light {
+  color: #abb2ba;
+}

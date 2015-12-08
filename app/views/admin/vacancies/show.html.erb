@@ -1,13 +1,20 @@
-<p>
-  <%=link_to 'Back',admin_vacancies_path,class: 'btn btn-sm btn-primary' %>
-  <%=link_to 'Edit',edit_admin_vacancy_path(vacancy),class: 'btn btn-sm btn-warning' %>
-</p>
-<div class="col-md-9 vacancy_show" >
+<div class="col-md-12 margin_bottom">
+    <%=link_to 'Back',admin_vacancies_path,class: 'btn btn-sm btn-primary' %>
+    <%=link_to 'Edit',edit_admin_vacancy_path(vacancy),class: 'btn btn-sm btn-warning' %>
+    <%=link_to 'delete',admin_vacancy_path(vacancy),method: :delete,data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-danger pull-right' %>
+</div>
+
+<div class="col-md-12 block_show" >
   <div class="add-top">
     <span class="text-muted">Vacancy on&nbsp;<%= vacancy.created_at.to_s(:human) %></span>
   </div>
   <h1><%=  vacancy.title%></h1>
 
+  <p>
+    <div class="col-md-3 text_bold text-muted">Company :</div>
+
+    <span class="text_black text_bold"><%=  vacancy.company.name%></span>
+  </p>
   <p>
       <div class="col-md-3 text_bold text-muted">Country :</div>
 
@@ -32,7 +39,7 @@
 
   <h2 class="side-lines"><span>Description vacancy</span></h2>
   <div class="desc_vacancy">
-    <%= vacancy.description %>
+    <%= simple_format vacancy.description.html_safe %>
   </div>
 
 
