@@ -4,6 +4,7 @@ FactoryGirl.define do
     description  { Faker::Lorem.paragraph }
     city         { Faker::Address.city }
     country      { Faker::Address.country }
+    deadline      { Date.today }
 
     trait :with_company do
       company
