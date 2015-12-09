@@ -44,7 +44,7 @@ class Admin::VacanciesController < ApplicationController
 
   helper_method :vacancies
   def vacancies
-    @vacancies ||= Vacancy.all.ordered
+    @vacancies ||= Vacancy.ordered
   end
 
   helper_method :vacancy
@@ -56,6 +56,5 @@ class Admin::VacanciesController < ApplicationController
   def new_vacancy
     @vacancy ||= Vacancy.new
   end
-
 end
 

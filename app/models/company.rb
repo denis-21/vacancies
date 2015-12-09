@@ -5,6 +5,5 @@ class Company < ActiveRecord::Base
   has_many :vacancies, dependent: :destroy
 
   scope :ordered, -> {order(name: :asc)}
-
 end
 

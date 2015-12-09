@@ -37,14 +37,16 @@ class Admin::CompaniesController < ApplicationController
   end
 
   private
+
   def company_params
     params.require(:company).permit(:name, :link)
   end
 
   helper_method :companies
   def companies
-    @companies ||= Company.all.ordered
+    @companies ||= Company.ordered
   end
+
   helper_method :new_company
   def new_company
     @company ||= Company.new
@@ -54,6 +56,5 @@ class Admin::CompaniesController < ApplicationController
   def company
     @company ||= Company.find(params[:id])
   end
-
 end
 

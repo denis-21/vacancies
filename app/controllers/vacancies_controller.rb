@@ -14,14 +14,12 @@ class VacanciesController < ApplicationController
 
   helper_method :vacancies
   def vacancies
-    @vacancies ||= Vacancy.all.ordered.active.page(params[:page]).per(params[:limit])
+    @vacancies ||= Vacancy.ordered.active.page(params[:page]).per(params[:limit])
   end
-
 
   helper_method :vacancy
   def vacancy
     @vacancy ||= Vacancy.find(params[:id])
   end
-
 end
 
