@@ -5,7 +5,9 @@ class Vacancy < ActiveRecord::Base
   belongs_to :company
 
   scope :ordered, -> {order(id: :desc)}
-  scope :search_by, ->(key,value) { where(key.to_sym =>value)}
+  scope :search_by, ->(key,value) do
+    where(key =>value) if self.attribute_names.include?(key.to_s)
+  end
   scope :active, -> { where("deadline >= ?", Date.today) }
 
   def status
