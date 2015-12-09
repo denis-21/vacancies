@@ -5,9 +5,7 @@ class Vacancy < ActiveRecord::Base
   belongs_to :company
 
   scope :ordered, -> {order(id: :desc)}
-  scope :search_country, ->(country) { where(country: country ) }
-  scope :search_city, ->(city) { where(city: city ) }
-  scope :search_company, ->(company_id) { where(company_id: company_id ) }
+  scope :search_by, ->(key,value) { where(key.to_sym =>value)}
   scope :active, -> { where("deadline >= ?", Date.today) }
 
   def status
