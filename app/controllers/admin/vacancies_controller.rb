@@ -58,3 +58,4 @@ class Admin::VacanciesController < ApplicationController
   end
 
 end
+

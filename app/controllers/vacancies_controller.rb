@@ -14,11 +14,7 @@ class VacanciesController < ApplicationController
 
   helper_method :vacancies
   def vacancies
-    if params[:limit]
-      @vacancies ||= Vacancy.all.ordered.active.page(params[:page]).per(params[:limit])
-    else
-      @vacancies ||= Vacancy.all.ordered.active.page(params[:page])
-    end
+    @vacancies ||= Vacancy.all.ordered.active.page(params[:page]).per(params[:limit])
   end
 
 
@@ -28,3 +24,4 @@ class VacanciesController < ApplicationController
   end
 
 end
+

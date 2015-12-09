@@ -4,7 +4,6 @@ class Admin::CompaniesController < ApplicationController
   layout 'admin_application'
 
   def index
-
   end
 
   def show
@@ -14,7 +13,6 @@ class Admin::CompaniesController < ApplicationController
   end
 
   def edit
-
   end
 
   def create
@@ -39,22 +37,23 @@ class Admin::CompaniesController < ApplicationController
   end
 
   private
-    def company_params
-      params.require(:company).permit(:name, :link)
-    end
+  def company_params
+    params.require(:company).permit(:name, :link)
+  end
 
-    helper_method :companies
-    def companies
-      @companies ||= Company.all.ordered
-    end
-    helper_method :new_company
-    def new_company
-      @company ||= Company.new
-    end
+  helper_method :companies
+  def companies
+    @companies ||= Company.all.ordered
+  end
+  helper_method :new_company
+  def new_company
+    @company ||= Company.new
+  end
 
-    helper_method :company
-    def company
-      @company ||= Company.find(params[:id])
-    end
+  helper_method :company
+  def company
+    @company ||= Company.find(params[:id])
+  end
 
 end
+
