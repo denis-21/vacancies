@@ -17,7 +17,6 @@ RSpec.feature "PageVacancy", type: :feature do
 
   describe 'Visit to vacancy page' do
 
-
     it 'have title vacancy' do
       expect(vacancy_page).to have_content (vacancy.title)
     end
@@ -28,7 +27,6 @@ RSpec.feature "PageVacancy", type: :feature do
     it 'have city vacancy' do
       expect(vacancy_page).to have_content (vacancy.city)
     end
-
   end
-
 end
+

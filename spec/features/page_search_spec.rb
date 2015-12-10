@@ -63,7 +63,5 @@ RSpec.feature "PageSearch", type: :feature do
     search_page.click_vacancy(vacancy.title)
     expect(VacancyPage.new).to be_displayed
   end
-
-
-
 end
+

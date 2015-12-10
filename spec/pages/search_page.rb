@@ -15,5 +15,4 @@ class SearchPage < SitePrism::Page
     link =  link_vacancies.find{ |title|  title.text == title_vacancy }
     link.find(:xpath, '..').click
   end
-
 end

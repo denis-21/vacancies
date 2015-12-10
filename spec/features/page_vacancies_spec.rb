@@ -43,7 +43,7 @@ RSpec.feature "PageVacancies", type: :feature do
 
     expect(SearchPage.new).to be_displayed
   end
-
 end
+
 
 

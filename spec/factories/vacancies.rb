@@ -9,8 +9,5 @@ FactoryGirl.define do
     trait :with_company do
       company
     end
-
-
   end
-
 end

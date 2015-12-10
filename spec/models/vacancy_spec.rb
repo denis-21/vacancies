@@ -16,7 +16,6 @@ RSpec.describe Vacancy, type: :model do
     it { should validate_presence_of(:country) }
   end
 
-
   describe 'scope' do
     it 'returns a vacancy by company' do
       expect(Vacancy.search_company(1)).to match_array([vacancy,vacancy1])
@@ -31,5 +30,5 @@ RSpec.describe Vacancy, type: :model do
       expect(Vacancy.all.ordered).to eq([vacancy2,vacancy1,vacancy])
     end
   end
-
 end
+
