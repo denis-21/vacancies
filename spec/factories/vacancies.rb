@@ -3,7 +3,7 @@ FactoryGirl.define do
     title        { Faker::Team.name }
     description  { Faker::Lorem.paragraph }
     city         { Faker::Address.city }
-    country      { Faker::Address.country }
+    country      { ISO3166::Country.all.map{|item| item.name}.sample }
     deadline      { Date.today }
 
     trait :with_company do
