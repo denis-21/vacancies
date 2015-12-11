@@ -6,4 +6,3 @@ class Company < ActiveRecord::Base
 
   scope :ordered, -> {order(name: :asc)}
 end
-

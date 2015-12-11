@@ -41,4 +41,3 @@ RSpec.describe Vacancy, type: :model do
     end
   end
 end
-

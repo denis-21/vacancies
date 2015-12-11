@@ -22,4 +22,3 @@ class VacanciesController < ApplicationController
     @vacancy ||= Vacancy.find(params[:id])
   end
 end
-

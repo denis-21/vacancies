@@ -22,11 +22,11 @@ RSpec.describe 'Companies', :type => :request do
     end
 
     it 'check company name' do
-      expect(json_body.collect{|l| l['name']}).to include(company.name)
+      expect(json_body.collect{|company| company['name']}).to include(company.name)
     end
 
     it 'check company url' do
-      expect(json_body.collect{|l| l['url']}).to include(api_v1_company_url(company,format: :json))
+      expect(json_body.collect{|company| company['url']}).to include(api_v1_company_url(company,format: :json))
     end
   end
 

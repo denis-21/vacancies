@@ -5,4 +5,3 @@ json.company do
       json.link  vacancy.company.link
       json.url  api_v1_company_url(vacancy.company,format: :json)
 end
-

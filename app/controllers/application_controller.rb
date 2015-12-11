@@ -16,4 +16,3 @@ class ApplicationController < ActionController::Base
     @companies ||= Company.all
   end
 end
-

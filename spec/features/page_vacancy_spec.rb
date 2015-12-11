@@ -14,7 +14,6 @@ RSpec.feature "PageVacancy", type: :feature do
     expect(vacancy_page).to be_displayed
   end
 
-
   describe 'Visit to vacancy page' do
 
     it 'have title vacancy' do
@@ -29,4 +28,3 @@ RSpec.feature "PageVacancy", type: :feature do
     end
   end
 end
-

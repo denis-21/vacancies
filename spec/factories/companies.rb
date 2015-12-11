@@ -4,4 +4,3 @@ FactoryGirl.define do
     link  { Faker::Internet.url }
   end
 end
-

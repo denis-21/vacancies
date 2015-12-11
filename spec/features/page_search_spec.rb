@@ -16,13 +16,11 @@ RSpec.feature "PageSearch", type: :feature do
     search_page.load
   end
 
-  
   scenario 'Click on the search button after selecting companies' do
     search_page.search.set_company(company2.name).submit
 
     expect(search_page.title_vacancies).to match_array([vacancy2.title,vacancy3.title])
   end
-
 
   scenario 'Click on the search button after selecting the country' do
     search_page.search.set_country(vacancy.country).submit
@@ -64,4 +62,3 @@ RSpec.feature "PageSearch", type: :feature do
     expect(VacancyPage.new).to be_displayed
   end
 end
-

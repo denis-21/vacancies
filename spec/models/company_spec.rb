@@ -20,4 +20,3 @@ RSpec.describe Company, type: :model do
     end
   end
 end
-

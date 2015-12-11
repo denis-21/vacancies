@@ -4,7 +4,7 @@ FactoryGirl.define do
     description  { Faker::Lorem.paragraph }
     city         { Faker::Address.city }
     country      { ISO3166::Country.all.map{|item| item.name}.sample }
-    deadline      { Date.today }
+    deadline      { Date.today + (1..5).to_a.sample.days }
 
     trait :with_company do
       company

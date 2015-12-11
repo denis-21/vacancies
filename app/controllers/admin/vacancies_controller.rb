@@ -57,4 +57,3 @@ class Admin::VacanciesController < ApplicationController
     @vacancy ||= Vacancy.new
   end
 end
-

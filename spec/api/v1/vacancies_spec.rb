@@ -22,7 +22,7 @@ RSpec.describe 'Vacancies', :type => :request do
     end
 
     it 'check vacancy title' do
-      expect(json_body.collect{|l| l['title']}).to include(vacancy.title)
+      expect(json_body.collect{|vacancy| vacancy['title']}).to include(vacancy.title)
     end
 
     context 'check value field first vacancy' do
@@ -36,8 +36,6 @@ RSpec.describe 'Vacancies', :type => :request do
 
       it { expect(@first_vacancy['city']).to eq(vacancy.city) }
     end
-
-
   end
 
   describe 'GET #show' do

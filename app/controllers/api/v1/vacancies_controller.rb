@@ -18,5 +18,3 @@ class Api::V1::VacanciesController < ApplicationController
     @vacancy ||= Vacancy.find(params[:id])
   end
 end
-
-

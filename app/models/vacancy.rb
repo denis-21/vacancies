@@ -14,4 +14,3 @@ class Vacancy < ActiveRecord::Base
     deadline < Date.today ? 'stale' : 'live'
   end
 end
-
