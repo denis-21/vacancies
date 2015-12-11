@@ -3,5 +3,4 @@ FactoryGirl.define do
     name  { Faker::Company.name }
     link  { Faker::Internet.url }
   end
-
 end

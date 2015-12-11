@@ -15,4 +15,11 @@ Rails.application.routes.draw do
     resources :companies
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :vacancies, only: [:index, :show]
+      resources :companies, only: [:index, :show]
+    end
+  end
+
 end

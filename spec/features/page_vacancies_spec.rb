@@ -1,7 +1,4 @@
 require 'rails_helper'
-require 'pages/vacancies_page'
-require 'pages/vacancy_page'
-require 'pages/search_page'
 
 RSpec.feature "PageVacancies", type: :feature do
   let!(:company)  { create :company }
@@ -29,7 +26,6 @@ RSpec.feature "PageVacancies", type: :feature do
     it 'have content title vacancies' do
       expect(vacancies_page.link_vacancies.count).to eq Vacancy.all.count
     end
-
   end
 
   scenario 'Click to title vacancy leads to a page vacancy' do
@@ -43,7 +39,4 @@ RSpec.feature "PageVacancies", type: :feature do
 
     expect(SearchPage.new).to be_displayed
   end
-
 end
-
-

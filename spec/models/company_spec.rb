@@ -19,5 +19,4 @@ RSpec.describe Company, type: :model do
       expect(Company.all.ordered).to eq([company, company1])
     end
   end
-
 end

@@ -4,9 +4,6 @@ class SearchSection < SitePrism::Section
   element :search_field_city, "#city"
   element :search_button, "input[value='Search']"
 
-
-
-
   def set_company company
     select_company.select(company)
     self
@@ -25,7 +22,4 @@ class SearchSection < SitePrism::Section
   def submit
     search_button.click
   end
-
-
-
 end

@@ -4,13 +4,11 @@ class Vacancy < ActiveRecord::Base
 
   belongs_to :company
 
-
   scope :ordered, -> {order(id: :desc)}
-  scope :search_country, ->(country) { where(country: country ) }
-  scope :search_city, ->(city) { where(city: city ) }
-  scope :search_company, ->(company_id) { where(company_id: company_id ) }
+  scope :search_by, ->(key,value) do
+    where(key =>value) if self.attribute_names.include?(key.to_s)
+  end
   scope :active, -> { where("deadline >= ?", Date.today) }
-
 
   def status
     deadline < Date.today ? 'stale' : 'live'
