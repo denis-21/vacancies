@@ -12,7 +12,6 @@ require 'site_prism'
 #require 'rspec/json_expectations'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-Dir[Rails.root.join('spec/pages/**/*.rb')].each { |f| require f }
 
 # Add additional requires below this line. Rails is not loaded until this point!
 

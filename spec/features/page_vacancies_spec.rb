@@ -1,7 +1,4 @@
 require 'rails_helper'
-require 'pages/vacancies_page'
-require 'pages/vacancy_page'
-require 'pages/search_page'
 
 RSpec.feature "PageVacancies", type: :feature do
   let!(:company)  { create :company }
