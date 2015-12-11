@@ -1,6 +1,6 @@
 class Admin::CompaniesController < ApplicationController
 
-  http_basic_authenticate_with :name => "user", :password => "123456"
+  before_action :authenticate_user!
   layout 'admin_application'
 
   def index

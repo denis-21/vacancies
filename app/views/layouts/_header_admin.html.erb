@@ -13,5 +13,10 @@
       <li><%=link_to 'All vacansies', admin_vacancies_path %></li>
       <li><%=link_to 'All company', admin_companies_path %></li>
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+       <li><%=link_to 'Site',root_path %></li>
+       <li><%=link_to 'Settings', edit_user_registration_path(current_user) %></li>
+       <li><%=link_to 'Sing out',destroy_user_session_path, method: :delete %></li>
+    </ul>
   </div>
 </nav>

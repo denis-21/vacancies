@@ -13,5 +13,15 @@
       <li><%=link_to 'All vacancies', root_path %></li>
       <li><%=link_to 'All company', companies_path %></li>
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+          <li><%=link_to 'Administration',admin_root_path %></li>
+          <li><%=link_to 'Settings', edit_user_registration_path(current_user) %></li>
+          <li><%=link_to 'Sing out',destroy_user_session_path, method: :delete %></li>
+      <% else %>
+          <li><%=link_to 'Sing in',new_user_session_path %></li>
+          <li><%=link_to 'Sing up',new_user_registration_path %></li>
+      <% end %>
+    </ul>
   </div>
 </nav>

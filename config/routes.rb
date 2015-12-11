@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root to: 'vacancies#index'
 
   resources :vacancies ,only: [:index, :show]

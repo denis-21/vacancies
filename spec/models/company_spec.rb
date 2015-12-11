@@ -2,15 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Company, type: :model do
   let!(:company) { create :company, name:'Atest'}
+
   describe 'associations' do
     it { should have_many(:vacancies).dependent(:destroy) }
 
+    it { should belong_to(:creator) }
   end
 
   describe 'validation' do
     it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:link) }
 
+    it { should validate_presence_of(:link) }
   end
 
   describe 'scope' do

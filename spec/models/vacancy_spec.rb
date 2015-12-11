@@ -7,6 +7,7 @@ RSpec.describe Vacancy, type: :model do
 
   describe 'associations' do
     it { should belong_to(:company) }
+    it { should belong_to(:creator) }
   end
 
   describe 'validation' do

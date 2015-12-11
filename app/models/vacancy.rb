@@ -3,6 +3,7 @@ class Vacancy < ActiveRecord::Base
   validates :title,:description,:city, :country,:deadline, presence: true
 
   belongs_to :company
+  belongs_to :creator, class_name: 'User'
 
   scope :ordered, -> {order(id: :desc)}
   scope :search_by, ->(key,value) do

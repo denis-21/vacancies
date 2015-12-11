@@ -1,6 +1,6 @@
 class Admin::VacanciesController < ApplicationController
 
-  http_basic_authenticate_with :name => "user", :password => "123456"
+  before_action :authenticate_user!
   layout 'admin_application'
 
   def index
@@ -44,16 +44,25 @@ class Admin::VacanciesController < ApplicationController
 
   helper_method :vacancies
   def vacancies
-    @vacancies ||= Vacancy.ordered
+    if current_user.admin
+      @vacancies ||= Vacancy.ordered
+    else
+      @vacancies ||= current_user.vacancies.ordered
+    end
   end
 
   helper_method :vacancy
   def vacancy
-    @vacancy ||= Vacancy.find(params[:id])
+    if current_user.admin
+      @vacancy ||= current_user.vacancies.find(params[:id])
+    else
+      @vacancy ||= Vacancy.find(params[:id])
+    end
   end
 
   helper_method :new_vacancy
   def new_vacancy
     @vacancy ||= Vacancy.new
+    @vacancy.creator_id = current_user
   end
 end
