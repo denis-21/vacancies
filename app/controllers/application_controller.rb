@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :companies
   def companies
-    @companies ||= current_user.companies.all
+    @companies ||= Company.all
   end
 end

@@ -6,6 +6,7 @@
       %th Company
       %th Country
       %th City
+      =content_tag(:th,'Author') if current_user.admin
       %th Deadline
       %th
   %tbody
@@ -19,6 +20,7 @@
           = vacancy.country
         %td
           = vacancy.city
+        =content_tag(:td,vacancy.creator.email) if current_user.admin  
         %td{:class => vacancy.status}
           = vacancy.deadline.to_s(:human)
         %td

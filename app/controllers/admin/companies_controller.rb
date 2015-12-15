@@ -1,7 +1,4 @@
-class Admin::CompaniesController < ApplicationController
-
-  before_action :authenticate_user!
-  layout 'admin_application'
+class Admin::CompaniesController <  Admin::AdminController
 
   def index
   end
@@ -44,16 +41,16 @@ class Admin::CompaniesController < ApplicationController
 
   helper_method :companies
   def companies
-    @companies ||= Company.ordered
+    @companies ||= (current_user.admin ? Company : current_user.companies).ordered
   end
 
   helper_method :new_company
   def new_company
-    @company ||= Company.new
+    @company ||= Company.new(creator_id: current_user.id)
   end
 
   helper_method :company
   def company
-    @company ||= Company.find(params[:id])
+    @companies ||= (current_user.admin ? Company : current_user.companies).find(params[:id])
   end
 end

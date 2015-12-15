@@ -4,7 +4,7 @@
       %th Email/Login User
       %th Count vacancies
       %th Count company
-      %th Status
+      %th Admin
       %th
   %tbody
     - users.each do |user|
@@ -13,9 +13,9 @@
           = user.email
         %td= user.vacancies.length
         %td= user.companies.length
-        %td= user.status
+        %td= glyph(:ok, {tag: :span}) if user.admin
         %td
-          - if user !=current_user
+          - unless user == current_user
             - if user.locked_at.blank?
               = render 'btn_block' ,user: user
             - else

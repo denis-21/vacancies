@@ -1,7 +1,4 @@
-class Admin::VacanciesController < ApplicationController
-
-  before_action :authenticate_user!
-  layout 'admin_application'
+class Admin::VacanciesController <  Admin::AdminController
 
   def index
   end
@@ -44,25 +41,16 @@ class Admin::VacanciesController < ApplicationController
 
   helper_method :vacancies
   def vacancies
-    if current_user.admin
-      @vacancies ||= Vacancy.ordered
-    else
-      @vacancies ||= current_user.vacancies.ordered
-    end
+    @vacancies ||= (current_user.admin ? Vacancy : current_user.vacancies).ordered
   end
 
   helper_method :vacancy
   def vacancy
-    if current_user.admin
-      @vacancy ||= current_user.vacancies.find(params[:id])
-    else
-      @vacancy ||= Vacancy.find(params[:id])
-    end
+    @vacancy = (current_user.admin ? Vacancy : current_user.vacancies).find(params[:id])
   end
 
   helper_method :new_vacancy
   def new_vacancy
-    @vacancy ||= Vacancy.new
-    @vacancy.creator_id = current_user
+    @vacancy ||= Vacancy.new(creator_id: current_user.id)
   end
 end
