@@ -1,0 +1,22 @@
+#vacancies.col-md-12
+  - vacancies.each do |vacancy|
+    .list-group
+      = link_to  vacancy_path(vacancy) ,class: 'list-group-item' do
+        %h2.list-group-item-heading
+          = vacancy.title
+        %p
+          %span.text_bold.text-primary
+            = vacancy.company.name
+          %span
+            %span.text-muted ·
+            = vacancy.country
+          %span
+            %span.text-muted ·
+            = vacancy.city
+          %span.text-warning
+            %span.text-muted ·
+            Open to: #{vacancy.deadline.to_s(:human)}
+        %p.list-group-item-text= truncate(vacancy.description,length: 300)
+.col-md-12
+  .text-center
+    = paginate vacancies
