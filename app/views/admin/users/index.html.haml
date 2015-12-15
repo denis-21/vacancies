@@ -1,0 +1,22 @@
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Email/Login User
+      %th Count vacancies
+      %th Count company
+      %th Status
+      %th
+  %tbody
+    - users.each do |user|
+      %tr
+        %td
+          = user.email
+        %td= user.vacancies.length
+        %td= user.companies.length
+        %td= user.status
+        %td
+          - if user !=current_user
+            - if user.locked_at.blank?
+              = render 'btn_block' ,user: user
+            - else
+              = render 'btn_unblock', user: user

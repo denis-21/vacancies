@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Vacancy
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'layouts/header_admin'
+    .row
+      .col-md-10.col-md-offset-1
+        = render 'shared/msg'
+        = yield

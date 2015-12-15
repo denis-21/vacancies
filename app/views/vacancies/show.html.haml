@@ -1,0 +1,26 @@
+.col-md-12.margin_bottom
+  = link_to 'Back',vacancies_path,class: 'btn btn-sm btn-primary'
+.col-md-12.block_show
+  .add-top
+    %span.text-muted
+      Vacancy on&#160;#{vacancy.created_at.to_s(:human)}
+  %h1= vacancy.title
+  %p
+  .col-md-3.text_bold.text-muted Company :
+  %span.text_black.text_bold= link_to vacancy.company.name,company_path(vacancy.company)
+  %p
+  .col-md-3.text_bold.text-muted Country :
+  %span.text_black.text_bold= vacancy.country
+  %p
+  .col-md-3.text_bold.text-muted City :
+  %span.text_black.text_bold= vacancy.city
+  %p
+  .col-md-3.text_bold.text-muted Link to company :
+  %span.text_black.text_bold= vacancy.company.link
+  %p
+  .col-md-3.text_bold.text-muted Open to :
+  %span.text_black.text_bold= vacancy.deadline.to_s(:human)
+  %h2.side-lines
+    %span Description vacancy
+  .desc_vacancy
+    = simple_format vacancy.description

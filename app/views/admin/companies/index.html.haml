@@ -1,0 +1,19 @@
+%p= link_to 'Add new Company', new_admin_company_path, method: :get, class: "btn btn-info new_company"
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Name company
+      %th Web-site
+      %th Count vacancies
+      %th
+  %tbody
+    - companies.each do |company|
+      %tr
+        %td
+          = link_to company.name, admin_company_path(company)
+        %td
+          = company.link
+        %td
+          = company.vacancies.count
+        %td
+          = link_to 'delete',admin_company_path(company),method: :delete,data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-danger'

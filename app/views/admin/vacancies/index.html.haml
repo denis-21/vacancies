@@ -1,0 +1,25 @@
+%p= link_to 'Add new Vacancy', new_admin_vacancy_path, method: :get, class: "btn btn-info new_vacancy"
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Job Title
+      %th Company
+      %th Country
+      %th City
+      %th Deadline
+      %th
+  %tbody
+    - vacancies.each do |vacancy|
+      %tr
+        %td
+          = link_to vacancy.title, admin_vacancy_path(vacancy)
+        %td
+          = vacancy.company.name
+        %td
+          = vacancy.country
+        %td
+          = vacancy.city
+        %td{:class => vacancy.status}
+          = vacancy.deadline.to_s(:human)
+        %td
+          = link_to 'delete',admin_vacancy_path(vacancy),method: :delete,data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-danger'
