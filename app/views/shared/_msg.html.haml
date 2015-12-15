@@ -1,7 +1,0 @@
-- flash.each do |key, value|
-  - key = 'danger' if key == 'alert' || key =='error'
-  - key = 'success' if key == 'notice'
-  %div{:class => "alert alert-#{key} alert-dismissible", :role => "alert"}
-    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
-      %span{"aria-hidden" => "true"} &#215;
-    = value
