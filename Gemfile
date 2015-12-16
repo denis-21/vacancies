@@ -38,6 +38,7 @@ gem 'countries', :require => 'countries/global'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'kaminari'
 gem 'haml-rails'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,6 +52,7 @@ group :development, :test do
   gem 'faker'
   gem 'site_prism'
   gem 'selenium-webdriver'
+  gem 'quiet_assets'
 end
 
 group :development do

@@ -4,3 +4,12 @@
 .form-group
   = f.label :link
   = f.text_field :link, class: 'form-control'
+.form-group
+  = f.fields_for :picture do |picture_form|
+    - if f.object.image.exists?
+      = image_tag f.object.image(:medium)
+      = picture_form.check_box :_destroy
+      = picture_form.label 'Remove Photo'
+    %p  
+      = picture_form.label :image 
+      = picture_form.file_field :image

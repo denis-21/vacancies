@@ -8,6 +8,17 @@ GIT
       less-rails (>= 2.5.0)
       railties (>= 3.1)
 
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 850a199da1f827571d3a21b075be45fe7d853e8f
+  specs:
+    paperclip (4.3.1)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -61,6 +72,10 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.8)
       ffi (~> 1.0, >= 1.0.11)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -136,6 +151,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.99)
+    mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
@@ -147,6 +163,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -266,8 +284,10 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  paperclip!
   pg
   pry
+  quiet_assets
   rails (= 4.2.5)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)

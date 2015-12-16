@@ -1,6 +1,6 @@
 .col-md-6
   = render 'shared/error_msg', object: new_company
-  = form_for new_company,url: admin_companies_path, method: :post  do |f|
+  = form_for new_company,url: admin_companies_path, method: :post, html: { multipart: true }  do |f|
     = render 'form', f: f
     .form-group
       = f.submit 'ADD', class: 'btn btn-success'

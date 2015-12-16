@@ -30,13 +30,13 @@ class Admin::CompaniesController <  Admin::AdminController
 
   def destroy
     company.destroy
-    redirect_to (:back)
+    redirect_to (:admin_companies)
   end
 
   private
 
   def company_params
-    params.require(:company).permit(:name, :link)
+    params.require(:company).permit(:name, :link, picture_attributes: [:image, :_destroy])
   end
 
   helper_method :companies
@@ -51,6 +51,6 @@ class Admin::CompaniesController <  Admin::AdminController
 
   helper_method :company
   def company
-    @companies ||= (current_user.admin ? Company : current_user.companies).find(params[:id])
+    @company ||= (current_user.admin ? Company : current_user.companies).find(params[:id])
   end
 end

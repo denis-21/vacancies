@@ -5,6 +5,7 @@
       %th Name company
       %th Web-site
       %th Count vacancies
+      %th Image
       %th
   %tbody
     - companies.each do |company|
@@ -16,4 +17,7 @@
         %td
           = company.vacancies.count
         %td
+          = image_tag company.image(:thumb)
+        %td
           = link_to 'delete',admin_company_path(company),method: :delete,data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-danger'
+
