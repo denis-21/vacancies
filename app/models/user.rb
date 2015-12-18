@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :vacancies, :foreign_key => 'creator_id'
   has_many :companies, :foreign_key => 'creator_id'
+  has_one :profile
 
   scope :ordered, -> {order(id: :asc)}
 end

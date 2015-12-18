@@ -1,15 +1,17 @@
-.form-group
-  = f.label :name
-  = f.text_field :name, class: 'form-control'
-.form-group
-  = f.label :link
-  = f.text_field :link, class: 'form-control'
-.form-group
-  = f.fields_for :picture do |picture_form|
-    - if f.object.image.exists?
-      = image_tag f.object.image(:medium)
-      = picture_form.check_box :_destroy
-      = picture_form.label 'Remove Photo'
-    %p  
+= f.fields_for :picture do |picture_form|
+  .col-md-8
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label :link
+      = f.text_field :link, class: 'form-control'
+    .form-group
       = picture_form.label :image 
       = picture_form.file_field :image
+  .col-md-4
+    = image_tag f.object.image(:medium) ,class: "avatar_user" 
+    - if f.object.image.exists?  
+      .form-group  
+        = picture_form.check_box :_destroy
+        = picture_form.label 'Remove Photo'    

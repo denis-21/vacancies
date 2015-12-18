@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :users,        only: [:index]  do
       resource :user_blocks, only: [:create, :destroy]
     end
-
+    resource :profiles, only: [:edit, :update]
   end
 
   namespace :api do

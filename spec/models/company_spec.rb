@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Company, type: :model do
-  let!(:company) { create :company, name:'Atest'}
+  let!(:company) { create :company, name: 'Atest' }
 
   describe 'associations' do
     it { should have_many(:vacancies).dependent(:destroy) }
@@ -17,7 +17,7 @@ RSpec.describe Company, type: :model do
 
   describe 'scope' do
     it 'returns company in asc name' do
-      company1 = create :company,name:'Btest'
+      company1 = create :company, name: 'Btest'
       expect(Company.all.ordered).to eq([company, company1])
     end
   end

@@ -1,15 +1,12 @@
 class Admin::AdminController < ApplicationController
-  before_action :authenticate_user!
   layout 'admin_application'
+
+  before_action :authenticate_user!
 
   private
 
   helper_method :companies
   def companies
-    if current_user.admin
-      @companies ||= Company.all
-    else
-      @companies ||= current_user.companies.all
-    end
+    @companies ||= (current_user.admin ? Company : current_user.companies).all
   end
 end

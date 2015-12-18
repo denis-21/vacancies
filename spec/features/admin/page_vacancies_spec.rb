@@ -1,21 +1,20 @@
 require 'rails_helper'
 
-RSpec.feature "AdminPageVacancies", type: :feature do
-  let!(:company)  { create :company }
-  let!(:company2) { create :company }
-
-  let!(:vacancy)  { create :vacancy,company:company }
-  let!(:vacancy2) { create :vacancy,company:company2 }
+RSpec.feature 'AdminPageVacancies', type: :feature do
+  let!(:user) { create :user }
+  let!(:company)  { create :company, creator_id: user.id }
+  let!(:company2) { create :company, creator_id: user.id }
+  let!(:vacancy)  { create :vacancy, company: company, creator_id: user.id }
+  let!(:vacancy2) { create :vacancy, company: company2, creator_id: user.id }
 
   let(:admin_vacancies_page) { AdminVacanciesPage.new }
 
   before do
-    http_basic_login('user','123456')
+    login_as user
     admin_vacancies_page.load
   end
 
   describe 'Visit to vacancies page' do
-
     it 'have elements to admin vacancies page' do
       expect(admin_vacancies_page).to be_all_there
     end
@@ -23,7 +22,6 @@ RSpec.feature "AdminPageVacancies", type: :feature do
     it 'have content title vacancies' do
       expect(admin_vacancies_page.vacancies_link.count).to eq Vacancy.all.count
     end
-
   end
 
   scenario 'Click to title vacancy leads to a page vacancy' do

@@ -1,8 +1,5 @@
 class Company < ActiveRecord::Base
-
-  after_initialize :find_or_initialize
-
-  validates :name,:link,  presence: true
+  validates :name, :link, presence: true
 
   has_many :vacancies, dependent: :destroy
   belongs_to :creator, class_name: 'User'
@@ -11,11 +8,5 @@ class Company < ActiveRecord::Base
 
   delegate :image, to: :picture, prefix: false, allow_nil: true
 
-  scope :ordered, -> {order(name: :asc)}
-
-  private
-
-  def find_or_initialize
-   self.build_picture unless self.picture
-  end  
+  scope :ordered, -> { order(name: :asc) }
 end

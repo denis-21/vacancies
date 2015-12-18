@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-RSpec.feature "AdminPageCopmanies", type: :feature do
-  let!(:company)  { create :company }
-  let!(:company2) { create :company }
+RSpec.feature 'AdminPageCopmanies', type: :feature do
+  let!(:user) { create :user }
+  let!(:company)  { create :company, creator_id: user.id }
+  let!(:company2) { create :company, creator_id: user.id }
 
   let(:admin_companies_page) { AdminCompaniesPage.new }
 
   before do
-    http_basic_login('user','123456')
+    login_as user
     admin_companies_page.load
   end
 
   describe 'Visit to companies page' do
-
     it 'have elements to admin companies page' do
       expect(admin_companies_page).to be_all_there
     end
@@ -20,7 +20,6 @@ RSpec.feature "AdminPageCopmanies", type: :feature do
     it 'have content title companies' do
       expect(admin_companies_page.companies_link.count).to eq Company.all.count
     end
-
   end
 
   scenario 'Click to title company leads to a page company' do

@@ -1,7 +1,8 @@
 %p= link_to 'Back',admin_company_path(company),class: 'btn btn-sm btn-primary'
-.col-md-6
+.col-md-10
   = render 'shared/error_msg', object: company
   = form_for company,url: admin_company_path, method: :put  do |f|
     = render 'form', f: f
-    .form-group
-      = f.submit 'Save', class: 'btn btn-success'
+    .col-md-8 
+      .form-group
+        = f.submit 'Update', class: 'btn btn-success'
