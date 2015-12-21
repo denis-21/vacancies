@@ -8,10 +8,6 @@ class Api::V1::CompaniesController < ApplicationController
 
   private
 
-  def company_params
-    params.require(:company).permit(:name, :link)
-  end
-
   helper_method :companies
   def companies
     @companies ||= Company.ordered

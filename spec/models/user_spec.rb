@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-	let!(:user_admin) { create :admin_user }
+  let!(:user_admin) { create :admin_user }
   let!(:user1) { create :user }
   let!(:user2) { create :user }
 

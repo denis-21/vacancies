@@ -27,4 +27,5 @@ RSpec.feature 'AdminPageCompany', type: :feature do
       expect(admin_company_page).to have_content(company.link)
     end
   end
+  
 end

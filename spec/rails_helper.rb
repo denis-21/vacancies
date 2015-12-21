@@ -6,6 +6,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'capybara/webkit'
 require 'shoulda/matchers'
 require 'selenium-webdriver'
 require 'site_prism'
@@ -45,33 +46,30 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include Capybara::DSL
+  Capybara.javascript_driver = :webkit
+
   config.include JsonHelpers, type: :request
+  config.include ActionDispatch::TestProcess, type: :feature
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = false
 
-  config.before(:suite) do
-    # This says that before the entire test suite runs, clear the test database out completely.
-    # This gets rid of any garbage left over from interrupted or poorly-written tests - a common source of surprising test behavior.
-    DatabaseCleaner.clean_with(:truncation)
-
-    # This part sets the default database cleaning strategy to be transactions.
-    # Transactions are very fast, and for all the tests where they do work - that is, any test where the entire test runs in the RSpec process - they are preferable.
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  # These lines hook up database_cleaner around the beginning and end of each test,
-  # telling it to execute whatever cleanup strategy we selected beforehand.
-  config.before(:each) do
+  config.before :each do
+    if Capybara.current_driver == :rack_test
+      DatabaseCleaner.strategy = :transaction
+    else
+      DatabaseCleaner.strategy = :truncation
+    end
     DatabaseCleaner.start
   end
 
-  config.after(:each) do
+  config.after do
     DatabaseCleaner.clean
   end
 

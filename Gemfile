@@ -59,6 +59,7 @@ group :test do
   gem 'simplecov',      require: false
   gem 'simplecov-json', require: false
   gem 'simplecov-rcov', require: false
+  gem 'capybara-webkit', '1.7.1'
 end
 
 group :development do
