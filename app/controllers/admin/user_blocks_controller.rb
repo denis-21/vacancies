@@ -1,25 +1,27 @@
-class Admin::UserBlocksController <  Admin::UsersController
+module Admin
+  class UserBlocksController < UsersController
 
-  layout false
+    layout false
 
-  def create
-    user.lock_access!
-    respond_to do |format|
-      format.js
+    def create
+      user.lock_access!
+      respond_to do |format|
+        format.js
+      end
     end
-  end
 
-  def destroy
-    user.unlock_access!
-    respond_to do |format|
-      format.js
+    def destroy
+      user.unlock_access!
+      respond_to do |format|
+        format.js
+      end
     end
-  end
 
-  private
+    private
 
-  helper_method :user
-  def user
-    @user ||= User.find(params[:user_id])
+    helper_method :user
+    def user
+      @user ||= User.find(params[:user_id])
+    end
   end
 end

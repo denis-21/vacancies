@@ -1,5 +1,5 @@
 module Admin
-  class ProfilesController < AdminController
+  class ProfilesController < AdminApplicationController
     def edit
     end
 

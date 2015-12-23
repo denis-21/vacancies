@@ -1,5 +1,5 @@
 module Admin
-  class CompaniesController < AdminController
+  class CompaniesController < AdminApplicationController
     def index
     end
 

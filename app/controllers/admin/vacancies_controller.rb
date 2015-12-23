@@ -1,5 +1,5 @@
 module Admin
-  class VacanciesController < AdminController
+  class VacanciesController < AdminApplicationController
     def index
     end
 
