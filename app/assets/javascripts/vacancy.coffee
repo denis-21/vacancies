@@ -23,6 +23,6 @@ $ ->
 
   $(document).on 'focus', '#profile_bith_date', ->
     $(this).datepicker({
-        format: 'dd.mm.yyyy',
-        orientation: 'bottom top'
-      });  
+      format: 'dd.mm.yyyy',
+      orientation: 'bottom top'
+    });
