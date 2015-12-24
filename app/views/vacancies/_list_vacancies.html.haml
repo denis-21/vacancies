@@ -15,7 +15,7 @@
             = vacancy.city
           %span.text-warning
             %span.text-muted ·
-            Open to: #{vacancy.deadline.to_s(:human)}
+            Open to: #{vacancy.deadline}
         %p.list-group-item-text= truncate(vacancy.description,length: 300)
 .col-md-12
   .text-center

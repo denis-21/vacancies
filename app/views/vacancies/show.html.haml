@@ -3,7 +3,8 @@
 .col-md-12.block_show
   .add-top
     %span.text-muted
-      Vacancy on&#160;#{vacancy.created_at.to_s(:human)}
+      Vacancy on
+      =vacancy.created_at.to_s(:human)
   %h1= vacancy.title
   %p
   .col-md-3.text_bold.text-muted Company :
