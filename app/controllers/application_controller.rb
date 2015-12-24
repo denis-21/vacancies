@@ -3,12 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-
   private
 
   helper_method :countries
   def countries
-    @countries ||= ISO3166::Country.all.map{|item| item.name}
+    @countries ||= ISO3166::Country.all.map(&:name)
   end
 
   helper_method :companies

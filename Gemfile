@@ -1,10 +1,7 @@
 source 'https://rubygems.org'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+# Use pg as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -33,9 +30,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
-gem 'countries', :require => 'countries/global'
-gem 'bootstrap-sass'
+gem 'devise-bootstrap-views'
+gem 'countries', require: 'countries/global'
+gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'kaminari'
+gem 'haml-rails'
+gem 'paperclip',  git: 'git://github.com/thoughtbot/paperclip.git'
+gem 'clean_data', git: 'git://github.com/xarimanx/clean_data.git'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,6 +51,15 @@ group :development, :test do
   gem 'faker'
   gem 'site_prism'
   gem 'selenium-webdriver'
+  gem 'quiet_assets'
+  gem 'rubocop', require: false
+end
+
+group :test do
+  gem 'simplecov',      require: false
+  gem 'simplecov-json', require: false
+  gem 'simplecov-rcov', require: false
+  gem 'capybara-webkit', '1.7.1'
 end
 
 group :development do
@@ -58,4 +69,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

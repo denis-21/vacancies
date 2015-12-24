@@ -1,0 +1,11 @@
+.col-md-12
+  %ul.logotypes-squares
+    - companies.each do |company|
+      %li
+        = link_to company_path(company) do
+          %p
+          %h3
+            %b= company.name
+          %br/
+          %span.text-gray-light
+            Count vacancies : #{company.vacancies.active.count}

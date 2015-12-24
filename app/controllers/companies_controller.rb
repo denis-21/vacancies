@@ -1,5 +1,4 @@
 class CompaniesController < ApplicationController
-
   def index
   end
 
@@ -7,10 +6,6 @@ class CompaniesController < ApplicationController
   end
 
   private
-
-  def company_params
-    params.require(:company).permit(:name, :link)
-  end
 
   helper_method :companies
   def companies

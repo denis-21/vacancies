@@ -1,0 +1,16 @@
+.col-md-12.margin_bottom
+  = link_to 'Back',companies_path,class: 'btn btn-sm btn-primary'
+.col-md-12.block_show
+  %h1= company.name
+  %p
+  .col-md-3.text_bold.text-muted Web-site :
+  %span.text_black.text_bold= company.link
+  %h2.side-lines
+    %span Open vacancies :
+  .desc_vacancy.col-md-12
+    %ul.list-group
+      - company.vacancies.active.each do |vacancy|
+        %li.list-group-item
+          = link_to vacancy.title, vacancy_path(vacancy)
+          %span.badge
+            Open to: #{vacancy.deadline.to_s(:human)}

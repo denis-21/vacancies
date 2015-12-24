@@ -1,0 +1,21 @@
+.col-md-12.margin_bottom
+  = link_to 'Back',admin_companies_path,class: 'btn btn-sm btn-primary'
+  = link_to 'Edit',edit_admin_company_path(company),class: 'btn btn-sm btn-warning'
+  = link_to 'delete',admin_company_path(company),method: :delete,data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-danger pull-right'
+.col-md-12.block_show
+  .col-md-12
+    .col-md-10
+      %h1= company.name
+      .col-md-3.text_bold.text-muted Web-site :
+      %span.text_black.text_bold= company.link
+    .col-md-2.text-center
+      = image_tag company.image(:thumb)
+  .col-ms-12  
+    %h2.side-lines
+      %span List of vacancies :
+  .desc_vacancy.col-md-12
+    %ul.list-group
+      - company.vacancies.each do |vacancy|
+        %li.list-group-item
+          = link_to vacancy.title, admin_vacancy_path(vacancy)
+          %span.badge= vacancy.deadline.to_s(:human)
