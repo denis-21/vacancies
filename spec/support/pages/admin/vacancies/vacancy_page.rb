@@ -3,5 +3,4 @@ class AdminVacancyPage < SitePrism::Page
 
   element :edit_button, '.btn-warning'
   element :delete_button, '.btn-danger'
-
 end

@@ -1,5 +1,5 @@
-class AdminNewVacancyPage < SitePrism::Page
-  set_url '/admin/vacancies/new'
+class AdminEditVacancyPage < SitePrism::Page
+  set_url '/admin/vacancies/{id}/edit'
 
   element :company, "select[name='vacancy[company_id]']"
   element :country, "select[name='vacancy[country]']"
