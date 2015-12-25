@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "PageVacancy", type: :feature do
-  let!(:vacancy)  { create :vacancy,:with_company }
-
+RSpec.feature 'PageVacancy', type: :feature do
+  let!(:vacancy) { create :vacancy, :with_company }
   let(:vacancy_page) { VacancyPage.new }
 
   before do
@@ -16,14 +15,14 @@ RSpec.feature "PageVacancy", type: :feature do
   describe 'Visit to vacancy page' do
 
     it 'have title vacancy' do
-      expect(vacancy_page).to have_content (vacancy.title)
+      expect(vacancy_page).to have_content(vacancy.title)
     end
     it 'have country vacancy' do
-      expect(vacancy_page).to have_content (vacancy.country)
+      expect(vacancy_page).to have_content(vacancy.country)
     end
 
     it 'have city vacancy' do
-      expect(vacancy_page).to have_content (vacancy.city)
+      expect(vacancy_page).to have_content(vacancy.city)
     end
   end
 end

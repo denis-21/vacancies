@@ -6,7 +6,6 @@ RSpec.feature 'AdminPageVacancies', type: :feature do
   let!(:company2) { create :company, creator_id: user.id }
   let!(:vacancy)  { create :vacancy, company: company, creator_id: user.id }
   let!(:vacancy2) { create :vacancy, company: company2, creator_id: user.id }
-
   let(:admin_vacancies_page) { AdminVacanciesPage.new }
 
   before do
@@ -26,13 +25,11 @@ RSpec.feature 'AdminPageVacancies', type: :feature do
 
   scenario 'Click to title vacancy leads to a page vacancy' do
     admin_vacancies_page.click_vacancy(vacancy2.title)
-
     expect(AdminVacancyPage.new).to be_displayed
   end
 
   scenario 'Click to button new vacancy leads to a page new vacancy' do
     admin_vacancies_page.button_new.click
-
     expect(AdminNewVacancyPage.new).to be_displayed
   end
 end

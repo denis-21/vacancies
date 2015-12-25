@@ -5,12 +5,12 @@ class Vacancy < ActiveRecord::Base
   belongs_to :creator, class_name: 'User'
 
   scope :ordered, -> { order(id: :desc) }
-  scope :search_by, ->(key, value) do
-    where(key => value) if self.attribute_names.include?(key.to_s)
-  end
-  scope :active, -> { where("deadline >= ?", Date.today) }
+  scope :search_by, (lambda do |key, value|
+    where(key => value) if attribute_names.include?(key.to_s)
+  end)
+  scope :active, -> { where('deadline >= ?', Time.zone.today) }
 
   def status
-    deadline < Date.today ? 'stale' : 'live'
+    deadline < Time.zone.today ? 'stale' : 'live'
   end
 end

@@ -26,7 +26,6 @@ RSpec.feature 'AdminUsersPage', type: :feature do
     scenario 'Click block user', js: true do
       admin_users_page.click_block_user
       admin_users_page.wait_for_unblock_buttons
-
       expect(admin_users_page).to have_unblock_buttons
     end
   end
@@ -37,7 +36,6 @@ RSpec.feature 'AdminUsersPage', type: :feature do
     scenario 'Click unblock user', js: true do
       admin_users_page.click_unblock_user
       admin_users_page.wait_for_block_buttons
-
       expect(admin_users_page).to have_block_buttons
     end
   end

@@ -1,5 +1,5 @@
 module Admin
-  class ExternalClientsController < AdminApplicationController
+  class ExternalClientsController < AdminController
     def index
     end
 

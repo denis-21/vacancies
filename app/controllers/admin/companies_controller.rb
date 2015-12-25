@@ -41,7 +41,7 @@ module Admin
 
     helper_method :companies
     def companies
-      @companies ||= (current_user.admin ? Company : current_user.companies).ordered
+      @companies ||= (current_user.admin ? Company : current_user.companies).eager_load(:vacancies).ordered
     end
 
     helper_method :new_company
