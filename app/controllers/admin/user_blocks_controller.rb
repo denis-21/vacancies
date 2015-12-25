@@ -1,6 +1,5 @@
 module Admin
   class UserBlocksController < UsersController
-
     layout false
 
     def create

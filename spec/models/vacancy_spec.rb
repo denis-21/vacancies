@@ -12,11 +12,8 @@ RSpec.describe Vacancy, type: :model do
 
   describe 'validation' do
     it { should validate_presence_of(:title) }
-
     it { should validate_presence_of(:description) }
-
     it { should validate_presence_of(:city) }
-
     it { should validate_presence_of(:country) }
   end
 

@@ -11,8 +11,8 @@
       %tr{ data: { id: user.id }}
         %td
           = user.email
-        %td= user.vacancies.length
-        %td= user.companies.length
+        %td= user.vacancies.size
+        %td= user.companies.size
         %td= glyph(:ok, {tag: :span}) if user.admin
         %td
           - unless user == current_user

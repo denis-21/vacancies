@@ -14,7 +14,6 @@ RSpec.describe 'Vacancies', type: :request do
       let(:request) { get api_v1_vacancies_url, format: :json }
 
       it { expect(response.status).to eq(401) }
-
       it { expect(json_body['errors']).to eq('No token authorization') }
     end
 
@@ -22,7 +21,6 @@ RSpec.describe 'Vacancies', type: :request do
       let(:request) { get api_v1_vacancies_url, format: :json, access_token: 'not_correct_token' }
 
       it { expect(response.status).to eq(401) }
-
       it { expect(json_body['errors']).to eq('Invalid token authorization') }
     end
 
@@ -30,9 +28,7 @@ RSpec.describe 'Vacancies', type: :request do
       let(:request) { get api_v1_vacancies_url, format: :json, access_token: external_client.secret_key }
 
       it { expect(response.status).to eq(200) }
-
       it { expect(response).to render_template(:index) }
-
       it { expect(response.content_type).to eq(Mime::JSON) }
 
       it 'check count active vacancies to response' do
@@ -49,9 +45,7 @@ RSpec.describe 'Vacancies', type: :request do
         end
 
         it { expect(@first_vacancy['title']).to eq(vacancy.title) }
-
         it { expect(@first_vacancy['country']).to eq(vacancy.country) }
-
         it { expect(@first_vacancy['city']).to eq(vacancy.city) }
       end
     end
@@ -62,7 +56,6 @@ RSpec.describe 'Vacancies', type: :request do
       let(:request) { get api_v1_vacancy_url(vacancy), format: :json }
 
       it { expect(response.status).to eq(401) }
-
       it { expect(json_body['errors']).to eq('No token authorization') }
     end
 
@@ -70,7 +63,6 @@ RSpec.describe 'Vacancies', type: :request do
       let(:request) { get api_v1_vacancy_url(vacancy), format: :json, access_token: 'not_correct_token' }
 
       it { expect(response.status).to eq(401) }
-
       it { expect(json_body['errors']).to eq('Invalid token authorization') }
     end
 
@@ -78,23 +70,14 @@ RSpec.describe 'Vacancies', type: :request do
       let(:request) { get api_v1_vacancy_url(vacancy), format: :json, access_token: external_client.secret_key }
 
       it { expect(response.status).to eq(200) }
-
       it { expect(response).to render_template(:show) }
-
       it { expect(response.content_type).to eq(Mime::JSON) }
-
       it { expect(json_body['company']['name']).to eq(company.name) }
-
       it { expect(json_body['company']['link']).to eq(company.link) }
-
       it { expect(json_body['company']['url']).to eq(api_v1_company_url(company, format: :json)) }
-
       it { expect(json_body['title']).to eq(vacancy.title) }
-
       it { expect(json_body['description']).to eq(vacancy.description) }
-
       it { expect(json_body['country']).to eq(vacancy.country) }
-
       it { expect(json_body['city']).to eq(vacancy.city) }
     end
   end
