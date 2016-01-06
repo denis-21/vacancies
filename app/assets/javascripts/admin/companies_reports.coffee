@@ -15,4 +15,4 @@ jQuery ->
       }
     myNewChart = new Chart($("#canvas").get(0).getContext("2d")).Line(data_chart)
 
- 
+
