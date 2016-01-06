@@ -41,7 +41,7 @@ module Admin
 
     helper_method :vacancies
     def vacancies
-      @vacancies ||= (current_user.admin ? Vacancy : current_user.vacancies).ordered
+      @vacancies ||= (current_user.admin ? Vacancy : current_user.vacancies).eager_load(:company).eager_load(:summaries)
     end
 
     helper_method :vacancy

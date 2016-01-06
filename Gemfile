@@ -38,6 +38,7 @@ gem 'clean_data', git: 'git://github.com/xarimanx/clean_data.git'
 gem 'bootstrap-datepicker-rails'
 gem 'chart-js-rails'
 gem 'groupdate'
+gem 'aasm'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

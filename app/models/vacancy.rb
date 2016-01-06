@@ -3,6 +3,7 @@ class Vacancy < ActiveRecord::Base
 
   belongs_to :company
   belongs_to :creator, class_name: 'User'
+  has_many :summaries, dependent: :destroy
 
   scope :ordered, -> { order(id: :desc) }
   scope :search_by, (lambda do |key, value|
