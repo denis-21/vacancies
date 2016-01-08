@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     root to: 'vacancies#index'
 
     resources :vacancies do
-      resources :summaries
+      resources :summaries, only: [:index, :update]
     end
     resources :companies
     resources :users,        only: [:index]  do

@@ -1,0 +1,50 @@
+%h3 New summary
+%table.table.table-striped.table-bordered.new_summary
+  %thead
+    %tr
+      %th Email
+      %th First Name
+      %th Last Name
+      %th File
+      %th{:colspan => "2"} Status
+  %tbody
+    - summaries.received.each do |summary|
+      %tr
+        %td= summary.email
+        %td= summary.first_name
+        %td= summary.last_name
+        %td= link_to 'download', summary.file.url(:original, false)
+        %td= link_to 'Accept', admin_vacancy_summary_path(summary.vacancy.id, summary, status: :accept), method: :put, remote: true, class: "btn btn-success"
+        %td= link_to 'Reject', admin_vacancy_summary_path(summary.vacancy.id, summary, status: :reject), method: :put, remote: true, class: "btn btn-danger"
+
+%h3 Accepted summary
+%table.table.table-striped.table-bordered.accepted_summary
+  %thead
+    %tr
+      %th Email
+      %th First Name
+      %th Last Name
+      %th File
+  %tbody
+    - summaries.accepted.each do |summary|
+      %tr
+        %td= summary.email
+        %td= summary.first_name
+        %td= summary.last_name
+        %td= link_to 'download', summary.file.url(:original, false)
+
+%h3 Rejected summary
+%table.table.table-striped.table-bordered.rejected_summary
+  %thead
+    %tr
+      %th Email
+      %th First Name
+      %th Last Name
+      %th File
+  %tbody
+    - summaries.rejected.each do |summary|
+      %tr
+        %td= summary.email
+        %td= summary.first_name
+        %td= summary.last_name
+        %td= link_to 'download', summary.file.url(:original, false)
