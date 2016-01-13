@@ -1,1 +1,17 @@
-console.log('Test')
+var element = $("[data-id='<%= summary.id %>']");
+element.remove();
+var accepted_table = $('.accepted_summary > tbody');
+var rejected_table = $('.rejected_summary > tbody');
+var html_tr = "<tr>" +
+                "<td><%= summary.email %></td>" +
+                "<td><%= summary.first_name %></td>" +
+                "<td><%= summary.last_name %></td>"+
+                "<td><%= j link_to 'download', summary.file.url(:original, false) %></td>"+
+              "</tr>";
+var status = "<%= params[:status]%>";
+if (status == 'accept') {
+  accepted_table.append(html_tr);
+}else if (status == 'reject'){
+  rejected_table.append(html_tr);
+}
+

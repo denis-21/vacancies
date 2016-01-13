@@ -5,20 +5,24 @@ module Admin
 
     def update
       respond_to do |format|
-        format.js
-      end if summary.update_status(params[:status])
+        if summary.update_status(params[:status])
+          format.js { render layout: false }
+        else
+          format.js { render nothing: true }
+        end
+      end
     end
 
     private
 
     helper_method :summaries
     def summaries
-      @summaries ||= Summary.where(vacancy_id: params[:vacancy_id])
+      @summaries ||= current_user.vacancies.find(params[:vacancy_id]).summaries
     end
 
     helper_method :summary
     def summary
-      @summary ||= Summary.find(params[:id])
+      @summary ||= current_user.vacancies.find(params[:vacancy_id]).summaries.find(params[:id])
     end
   end
 end

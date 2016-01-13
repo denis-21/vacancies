@@ -26,7 +26,7 @@ class Summary < ActiveRecord::Base
   end
 
   def update_status(new_status)
-    send(new_status << '!')
+    send("#{new_status}!") if aasm.events.map(&:name).include?(new_status.to_sym)
   end
 
   def send_email

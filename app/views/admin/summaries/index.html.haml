@@ -6,10 +6,10 @@
       %th First Name
       %th Last Name
       %th File
-      %th{:colspan => "2"} Status
+      %th{ colspan: "2" } Status
   %tbody
     - summaries.received.each do |summary|
-      %tr
+      %tr{ data: { id: summary.id } }
         %td= summary.email
         %td= summary.first_name
         %td= summary.last_name
