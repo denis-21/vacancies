@@ -5,15 +5,15 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    = link_to 'Site Vacancy', admin_root_path, class: 'navbar-brand'
+    = link_to 'Site Vacancy', manage_root_path, class: 'navbar-brand'
   #navbar.navbar-collapse.collapse
     %ul.nav.navbar-nav
-      %li= link_to 'All vacansies', admin_vacancies_path
-      %li= link_to 'All company', admin_companies_path
+      %li= link_to 'All vacansies', manage_vacancies_path
+      %li= link_to 'All company', manage_companies_path
       - if current_user.admin
-        %li= link_to 'Users', admin_users_path
-        %li= link_to 'Api clients', admin_external_clients_path
-        %li= link_to 'Reports', admin_reports_path
+        %li= link_to 'Users', manage_admin_users_path
+        %li= link_to 'Api clients', manage_admin_external_clients_path
+        %li= link_to 'Reports', manage_admin_reports_path
     %ul.nav.navbar-nav.navbar-right
       %li= link_to 'Site',root_path
       %li.dropdown
@@ -21,6 +21,6 @@
           = current_user.email
           %span.caret
         %ul.dropdown-menu
-          %li= link_to 'Profile', edit_admin_profiles_path
+          %li= link_to 'Profile', edit_manage_profiles_path
           %li= link_to 'Change Password', edit_user_registration_path(current_user)
           %li= link_to 'Sing out',destroy_user_session_path, method: :delete

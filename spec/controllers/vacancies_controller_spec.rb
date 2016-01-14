@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe VacanciesController, type: :controller do
+RSpec.describe PublicPart::VacanciesController, type: :controller do
 
   describe 'GET #index' do
     it 'renders the index template' do
