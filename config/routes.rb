@@ -2,14 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'vacancies#index'
 
-  resources :vacancies,        only: [:index, :show]
+  resources :vacancies,        only: [:index, :show] do
+    resources :summaries,      only: [:new, :create]
+  end
   resources :companies,        only: [:index, :show]
   resources :search_vacancies, only: [:index]
 
   namespace :admin do
     root to: 'vacancies#index'
 
-    resources :vacancies
+    resources :vacancies do
+      resources :summaries, only: [:index, :update]
+    end
     resources :companies
     resources :users,        only: [:index]  do
       resource :user_blocks, only: [:create, :destroy]

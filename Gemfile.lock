@@ -28,6 +28,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (4.5.2)
     actionmailer (4.2.5)
       actionpack (= 4.2.5)
       actionview (= 4.2.5)
@@ -311,6 +312,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   bootstrap-datepicker-rails
   byebug
   capybara

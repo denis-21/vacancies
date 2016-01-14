@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221154114) do
+ActiveRecord::Schema.define(version: 20160106093806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20151221154114) do
   create_table "external_clients", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "description"
-    t.string   "secret_key"
+    t.text     "secret_key"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -52,6 +52,20 @@ ActiveRecord::Schema.define(version: 20151221154114) do
     t.integer  "user_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "summaries", force: :cascade do |t|
+    t.string   "email",             default: "", null: false
+    t.string   "first_name",        default: ""
+    t.string   "last_name",         default: ""
+    t.string   "status"
+    t.integer  "vacancy_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
