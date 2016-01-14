@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     end
     resources :companies
     resource :profiles, only: [:edit, :update]
+    resources :reports, only: [:index]
+    resource :reports, only: [] do
+      resources :summaries, only: [:show], controller: :summaries_reports
+    end
 
     namespace :admin do
       resources :users,        only: [:index]  do
