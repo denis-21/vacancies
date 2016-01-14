@@ -1,42 +1,43 @@
 require 'rails_helper'
 
 RSpec.feature 'AdminUsersPage', type: :feature do
-  let!(:user) { create :admin_user }
-
+  let!(:admin) { create :admin_user }
   let(:admin_users_page) { AdminUsersPage.new }
 
   before do
-    login_as user
-    admin_users_page.load
+    login_as admin
   end
 
   describe 'Visit to users page' do
+    let!(:user1) { create :user }
+    let!(:user2) { create :user }
+
+    before { admin_users_page.load }
+
     it 'have content Email/Login User' do
-      expect(admin_users_page.users_email.count).to eq User.all.count
+      expect(admin_users_page.users_email).to match_array(User.pluck(:email))
     end
   end
 
   context 'When present unblock user' do
     let!(:user1) { create :user }
 
-    it 'have button block' do
-      expect(admin_users_page).to have_block_buttons
-    end
+    before { admin_users_page.load }
 
     scenario 'Click block user', js: true do
-      admin_users_page.click_block_user
-      admin_users_page.wait_for_unblock_buttons
-      expect(admin_users_page).to have_unblock_buttons
+      admin_users_page.click_block_user(user1.email)
+      expect(admin_users_page.user_by(user1.email)).to have_unblock_button
     end
   end
 
   context 'When present block user' do
     let!(:user1) { create :user, locked_at: Time.zone.today }
 
+    before { admin_users_page.load }
+
     scenario 'Click unblock user', js: true do
-      admin_users_page.click_unblock_user
-      admin_users_page.wait_for_block_buttons
-      expect(admin_users_page).to have_block_buttons
+      admin_users_page.click_unblock_user(user1.email)
+      expect(admin_users_page.user_by(user1.email)).to have_block_button
     end
   end
 end

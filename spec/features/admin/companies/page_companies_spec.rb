@@ -17,7 +17,7 @@ RSpec.feature 'AdminPageCopmanies', type: :feature do
     end
 
     it 'have content title companies' do
-      expect(admin_companies_page.companies_link.count).to eq(Company.count)
+      expect(admin_companies_page.names_company).to match_array(Company.pluck(:name))
     end
   end
 
@@ -32,7 +32,7 @@ RSpec.feature 'AdminPageCopmanies', type: :feature do
   end
 
   scenario 'Click delete button' do
-    admin_companies_page.delete_buttons.first.click
-    expect(admin_companies_page).to have_content(company2.name)
+    admin_companies_page.delete_company(company2.name)
+    expect(admin_companies_page).to have_content(company.name)
   end
 end

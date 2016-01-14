@@ -46,7 +46,7 @@ module Admin
 
     helper_method :vacancy
     def vacancy
-      @vacancy = (current_user.admin ? Vacancy : current_user.vacancies).find(params[:id])
+      @vacancy ||= (current_user.admin ? Vacancy : current_user.vacancies).find(params[:id])
     end
 
     helper_method :new_vacancy

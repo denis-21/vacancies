@@ -1,12 +1,21 @@
+require_relative 'companies_section'
 class AdminCompaniesPage < SitePrism::Page
   set_url '/admin/companies'
 
-  elements :companies_link, 'table tbody tr td:first a'
   element :button_new, '.new_company'
-  elements :delete_buttons, 'table tbody tr td:last a'
+  sections :companies, CompaniesSection, 'table tbody tr'
 
-  def click_company(title_company)
-    link = companies_link.find { |title| title.text == title_company }
-    link.click
+  def click_company(name_company)
+    company = companies.find { |c| c.name.text == name_company }
+    company.name.click
+  end
+
+  def delete_company(name_company)
+    company = companies.find { |c| c.name.text == name_company }
+    company.delete_button.click
+  end
+
+  def names_company
+    companies.map { |company| company.name.text }
   end
 end

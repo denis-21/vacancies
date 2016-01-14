@@ -19,7 +19,7 @@ RSpec.feature 'AdminPageVacancies', type: :feature do
     end
 
     it 'have content title vacancies' do
-      expect(admin_vacancies_page.vacancies_link.count).to eq Vacancy.all.count
+      expect(admin_vacancies_page.vacancies_title).to match_array(Vacancy.pluck(:title))
     end
   end
 
@@ -31,5 +31,10 @@ RSpec.feature 'AdminPageVacancies', type: :feature do
   scenario 'Click to button new vacancy leads to a page new vacancy' do
     admin_vacancies_page.button_new.click
     expect(AdminNewVacancyPage.new).to be_displayed
+  end
+
+  scenario 'Click delete button' do
+    admin_vacancies_page.delete_vacancy(vacancy.title)
+    expect(admin_vacancies_page).not_to have_content(vacancy.title)
   end
 end

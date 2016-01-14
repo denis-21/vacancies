@@ -8,7 +8,7 @@ class SearchPage < SitePrism::Page
   section :search, SearchSection, '#search-form'
 
   def click_vacancy(title_vacancy)
-    link = link_vacancies.find{ |link| link.title.text == title_vacancy }
+    link = link_vacancies.find { |l| l.title.text == title_vacancy }
     link.root_element.click
   end
 end
