@@ -1,0 +1,7 @@
+.col-md-6
+  = render 'shared/error_msg', object: new_company
+  = form_for new_company,url: manage_companies_path, method: :post, html: { multipart: true }  do |f|
+    = render 'form', f: f
+    .col-md-8
+      .form-group
+        = f.submit 'ADD', class: 'btn btn-success'

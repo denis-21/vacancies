@@ -1,0 +1,9 @@
+.panel.panel-default
+  .panel-heading
+    %h4 Reports copmany
+  .panel-body
+    .companies_reports
+      %p List company
+      %ul
+        - companies.each do |company|
+          %li= link_to company.name, manage_admin_reports_company_path(company)

@@ -9,9 +9,4 @@ class ApplicationController < ActionController::Base
   def countries
     @countries ||= ISO3166::Country.all.map(&:name)
   end
-
-  helper_method :companies
-  def companies
-    @companies ||= Company.all
-  end
 end
