@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resource :profiles, only: [:edit, :update]
     resources :reports, only: [:index]
     resource :reports, only: [] do
-      resources :summaries, only: [:show], controller: :summaries_reports
+      resources :vacancies, only: [:show], controller: :vacancies_reports
     end
 
     namespace :admin do

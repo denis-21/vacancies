@@ -1,9 +1,9 @@
 .panel.panel-default
   .panel-heading
-    %h4 Reports summaries
+    %h4 Reports vacancies
   .panel-body
     .companies_reports
       %p List vacancies
       %ul
         - vacancies.each do |vacancy|
-          %li= link_to vacancy.title, manage_reports_summary_path(vacancy)
+          %li= link_to vacancy.title, manage_reports_vacancy_path(vacancy)
