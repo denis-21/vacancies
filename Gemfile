@@ -39,6 +39,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'chart-js-rails'
 gem 'groupdate'
 gem 'aasm'
+gem 'jquery-inputmask-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -15,4 +15,6 @@
 #= require twitter/bootstrap
 #= require bootstrap-datepicker
 #= require Chart
+#= require jquery.inputmask
+#= require jquery.inputmask.date.extensions
 #= require_tree .
