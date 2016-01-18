@@ -47,4 +47,3 @@ jQuery ->
       format: 'dd.mm.yyyy',
       orientation: 'bottom top'
     });
-
