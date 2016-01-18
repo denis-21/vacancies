@@ -1,4 +1,4 @@
-@admin = vacancies: build_chart: (data) ->
+@manage = vacancies: build_chart: (data) ->
   if data?
     $(".canvas-wrapper").html("").html('<canvas id="canvas-summaries"></canvas>');
     data_chart = {
@@ -39,7 +39,7 @@
 
 jQuery ->
   data = $('#canvas-summaries').data('report')
-  admin.vacancies.build_chart(data)
+  manage.vacancies.build_chart(data)
 
   $(document).on 'focus', 'input[name="start_day"], input[name="end_day"]', ->
     $('input[value="period"]').prop('checked', true);
