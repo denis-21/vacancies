@@ -11,18 +11,27 @@ class VacanciesReportBuilder
     { labels: @received.keys.map { |dt| dt.to_s(:human) }, values: { received: @received.values, accepted: @accepted.values, rejected: @rejected.values } }
   end
 
-  def build_by_periods(params)
-    if params[:type_build] == 'period' && params[:start_day].present? && params[:end_day].present?
-      summaries.group_by_day(:created_at, range: Time.zone.parse(params[:start_day])..Time.zone.parse(params[:end_day]).end_of_day)
+  def build_by_periods(start_day, end_day)
+    if start_day.present? && end_day.present?
+      by_day(start_day, end_day)
     else
-      summaries.group_by_day_of_month(:created_at)
+      by_day_of_month
     end
   end
 
-  def build(params)
-    @received = build_by_periods(params).received.count
-    @accepted = build_by_periods(params).accepted.count
-    @rejected = build_by_periods(params).rejected.count
+  def by_day(start_day, end_day)
+    summaries.group_by_day(:created_at, range: Time.zone.parse(start_day)..Time.zone.parse(end_day).end_of_day)
+  end
+
+  def by_day_of_month
+    summaries.group_by_day_of_month(:created_at)
+  end
+
+  def build(start_day, end_day)
+    type_report = build_by_periods(start_day, end_day)
+    @received = type_report.received.count
+    @accepted = type_report.accepted.count
+    @rejected = type_report.rejected.count
     hash
   end
 end

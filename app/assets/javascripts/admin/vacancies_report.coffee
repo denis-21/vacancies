@@ -47,3 +47,8 @@ jQuery ->
       format: 'dd.mm.yyyy',
       orientation: 'bottom top'
     });
+  $(document).on 'change', 'input[value="month"]', ->
+    $('input[name="start_day"], input[name="end_day"]').attr("disabled", true)
+
+  $(document).on 'change', 'input[value="period"]', ->
+    $('input[name="start_day"], input[name="end_day"]').attr("disabled", false)
