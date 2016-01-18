@@ -7,7 +7,7 @@ module PrivatePart
 
     helper_method :vacancies
     def vacancies
-      @vacancies ||= (current_user.admin ? Vacancy : current_user.vacancies).all
+      @vacancies ||= (current_user.admin ? Vacancy : current_user.vacancies).eager_load(:summaries)
     end
   end
 end
