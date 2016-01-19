@@ -6,10 +6,10 @@
     %label
       %input{ type: 'radio', name: 'type_build', value: :period }/
       Report by period from:
-      %input{ type: 'text', name: 'start_day' }/
+      %input{ type: 'text', name: 'start_day', disabled: :disabled }/
       to:
-      %input{ type: 'text', name: 'end_day' }/
+      %input{ type: 'text', name: 'end_day', disabled: :disabled }/
     = submit_tag 'Build', class: 'btn btn-sm btn-success'
 .col-md-12.canvas-wrapper
   %canvas#canvas-summaries{ data:{ report: report.to_json } }
-  .legendDiv
+.col-md-12.legendDiv

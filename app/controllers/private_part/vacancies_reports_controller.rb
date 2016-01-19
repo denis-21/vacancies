@@ -11,7 +11,7 @@ module PrivatePart
 
     helper_method :report
     def report
-      @report = VacanciesReportBuilder.new(current_user.vacancies.find(params[:id])).build(params)
+      @report = VacanciesReportBuilder.new(current_user.vacancies.find(params[:id])).build(params[:start_day], params[:end_day])
     end
   end
 end
