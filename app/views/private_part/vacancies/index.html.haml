@@ -4,6 +4,7 @@
     %tr
       %th Job Title
       %th Company
+      %th Continent
       %th Country
       %th City
       %th New summaries
@@ -15,6 +16,7 @@
       %tr
         %td= link_to vacancy.title, manage_vacancy_path(vacancy)
         %td= vacancy.company_name
+        %td= vacancy.continent
         %td= vacancy.country
         %td= vacancy.city
         %td

@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
   def countries
     @countries ||= ISO3166::Country.all.map(&:name)
   end
+
+  helper_method :continents
+  def continents
+    @continents ||= ISO3166::Country.all.map(&:continent).uniq.sort!
+  end
 end
