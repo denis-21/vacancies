@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   private
 
   helper_method :countries
-  def countries
-    @countries ||= ISO3166::Country.all.map(&:name)
+  def countries(continent = nil)
+    @countries ||= continent.present? ? ISO3166::Country.find_all_countries_by_continent(continent) : ISO3166::Country.all.map(&:name)
   end
 
   helper_method :continents
