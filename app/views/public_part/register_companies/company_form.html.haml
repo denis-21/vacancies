@@ -1,0 +1,39 @@
+.col-md-8
+  %ul.nav.nav-pills
+    %li.active= link_to 'Copmany' ,'',class:'uppercase_text'
+    %li= link_to 'User' ,'',class:'uppercase_text'
+  %br
+
+.col-md-6
+  = render 'shared/error_msg', object: new_company
+
+= form_for new_company, url: register_companies_path, method: :post, html: { multipart: true }  do |f|
+  = f.fields_for :picture do |picture_form|
+    .col-md-8
+      .form-group
+        = f.label :continent
+        = f.select(:continent, continents, { include_blank: 'Select continent' }, class: 'form-control', data: { remote: true, url: url_for( action: :index, controller: '/render_countries') }  )
+      .form-group
+        = f.label :country
+        = f.select(:country, countries(f.object.continent), {}, class: 'form-control' )
+      .form-group
+        = f.label :city
+        = f.text_field :city, class: 'form-control'
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label :link
+        = f.text_field :link, class: 'form-control'
+      .form-group
+        = picture_form.label :image
+        = picture_form.file_field :image
+    .col-md-4
+      = image_tag f.object.image(:medium) ,class: "avatar_user"
+      - if f.object.image.exists?
+        .form-group
+          = picture_form.check_box :_destroy
+          = picture_form.label 'Remove Photo'
+    .col-md-8
+      .form-group
+        = f.submit 'Next', class: 'btn btn-success'
