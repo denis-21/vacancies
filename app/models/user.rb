@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :lockable
 
   has_many :vacancies, foreign_key: 'creator_id'
-  has_one :companies, foreign_key: 'creator_id'
+  has_one :company, foreign_key: 'creator_id'
   has_one :profile
 
   scope :ordered, -> { order(id: :asc) }

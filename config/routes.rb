@@ -10,7 +10,12 @@ Rails.application.routes.draw do
     end
     resources :companies,        only: [:index, :show]
     resources :search_vacancies, only: [:index]
-    resource :register_companies, only: [:new, :create]
+
+    namespace :create_company_steps do
+      resource :companies, only: [:new, :create]
+      resource :users, only: [:new, :create]
+      resource :confirms, only: [:new, :create]
+    end
   end
 
   namespace :manage, module: :private_part do

@@ -1,0 +1,6 @@
+.col-md-8
+  %ul.nav.nav-pills
+    - steps.each do |st|
+      %li{class: "#{st == current_step ? 'active': ''}"}
+        = link_to st.upcase ,setup_step_path(st)
+  %br

@@ -1,13 +1,9 @@
-.col-md-8
-  %ul.nav.nav-pills
-    %li= link_to 'Copmany' ,'',class:'uppercase_text'
-    %li.active= link_to 'User' ,'',class:'uppercase_text'
-  %br
+= render 'public_part/create_company_steps/shared/steps'
 
 .col-md-6
   = render 'shared/error_msg', object: new_user
 
-= form_for new_user, url: register_companies_path, method: :post, html: { multipart: true }  do |f|
+= form_for new_user, url: create_company_steps_users_path, method: :post, html: { multipart: true }  do |f|
   .col-md-8
     .form-group
       = f.label :email
@@ -20,4 +16,4 @@
       = f.password_field :password_confirmation, class: 'form-control'
   .col-md-8
     .form-group
-      = f.submit 'Create', class: 'btn btn-success'
+      = f.submit 'Next', class: 'btn btn-success'
