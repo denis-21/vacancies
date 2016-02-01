@@ -13,8 +13,8 @@ default: &default
 development:
    <<: *default
    database: vacancy_dev
-   username: dsl
-   password: Ugpedsap?
+   username: vacancy_user
+   password: vacancy_pass
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,11 +22,11 @@ development:
 test:
   <<: *default
   database: vacancy_test
-  username: dsl
-  password: Ugpedsap?
+  username: vacancy_user
+  password: vacancy_pass
 
 production:
   <<: *default
   database: vacancy_prod
-  username: dsl
-  password: Ugpedsap?
+  username: vacancy_user
+  password: vacancy_pass
