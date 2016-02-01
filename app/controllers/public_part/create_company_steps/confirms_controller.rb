@@ -14,7 +14,7 @@ module PublicPart
           render :new
         end
       end
-``
+
       private
 
       def check_data
