@@ -34,12 +34,12 @@ module PublicPart
 
       helper_method :company_data
       def company_data
-        JSON.parse(cookies[:companies])
+        @company_data ||= JSON.parse(cookies[:companies])
       end
 
       helper_method :user_data
       def user_data
-        JSON.parse(cookies[:users])
+        @user_data ||= JSON.parse(cookies[:users])
       end
     end
   end
