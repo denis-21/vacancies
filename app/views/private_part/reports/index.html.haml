@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading
+    %h4 Reports vacancies
+  .panel-body
+    .vacancies_reports
+      %p List vacancies
+      %ul
+        - vacancies.each do |vacancy|
+          %li
+            = link_to vacancy.title, manage_reports_vacancy_path(vacancy)
+            .circle= vacancy.summaries.size

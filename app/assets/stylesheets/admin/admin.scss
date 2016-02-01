@@ -16,3 +16,36 @@ span.new_summary{
   color :#00A80A;
   font-weight: bold;
 }
+.chartjs-legend li {
+    display: inline-block;
+    padding-left: 20px;
+    span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 5px;
+    }
+}
+canvas {
+  height: 450px;
+  width: 90%;
+  display: block;
+}
+.type_build_report{
+  margin-bottom: 20px;
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+.circle{
+  background: #D7C808 none repeat scroll 0 0;
+    border-radius: 50px;
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 20px;
+}
