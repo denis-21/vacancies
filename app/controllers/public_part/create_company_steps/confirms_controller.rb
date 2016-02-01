@@ -11,10 +11,10 @@ module PublicPart
           clear_cookies
           redirect_to root_url, flash: { success: 'Confirmation expected administrator' }
         else
-          render :show
+          render :new
         end
       end
-
+``
       private
 
       def check_data
