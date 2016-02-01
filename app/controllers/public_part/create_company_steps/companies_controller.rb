@@ -1,9 +1,8 @@
 module PublicPart
   module CreateCompanySteps
     class CompaniesController < StepsController
-      before_action :set_start_cookies, only: [:new]
-
       def new
+        set_start_cookies
       end
 
       def create
