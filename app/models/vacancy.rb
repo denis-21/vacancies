@@ -1,5 +1,5 @@
 class Vacancy < ActiveRecord::Base
-  validates :title, :description, :city, :country, :deadline, presence: true
+  validates :title, :description, :city, :country, :continent, :deadline, presence: true
 
   belongs_to :company
   belongs_to :creator, class_name: 'User'

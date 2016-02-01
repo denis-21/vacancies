@@ -36,7 +36,7 @@ module PrivatePart
     private
 
     def vacancy_params
-      params.require(:vacancy).permit(:title, :description, :country, :city, :company_id, :deadline)
+      params.require(:vacancy).permit(:title, :description, :continent, :country, :city, :company_id, :deadline)
     end
 
     helper_method :vacancies

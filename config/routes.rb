@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'public_part/vacancies#index'
 
+  resources :render_countries, only: [:index]
+
   scope module: :public_part do
     resources :vacancies,        only: [:index, :show] do
       resources :summaries,      only: [:new, :create]
