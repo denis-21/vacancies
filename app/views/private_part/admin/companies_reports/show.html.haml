@@ -1,1 +1,14 @@
-%canvas#canvas{ height: "450", width: "1000", data:{ report: report.to_json } }
+.col-md-10.type_build_report
+  = form_tag(manage_admin_reports_company_path(params[:id]), method: :get, remote: true, class: 'form-inline') do
+    %label
+      %input{ type: 'radio', name: 'type_company_report', value: :month_year, checked: :checked }/
+      Report month of year
+    %label
+      %input{ type: 'radio', name: 'type_company_report', value: :period }/
+      Report by period from:
+      %input{ type: 'text', name: 'company_report_start_day' }/
+      to:
+      %input{ type: 'text', name: 'company_report_end_day' }/
+    = submit_tag 'Build', class: 'btn btn-sm btn-success'
+.col-md-12.canvas-wrapper
+  %canvas#canvas{ height: "450", width: "1000", data:{ report: report.to_json } }
