@@ -7,13 +7,6 @@ class RenderCountriesController < ApplicationController
 
   helper_method :continent
   def continent
-    @continent =
-      if params[:continent].present?
-        @continent = params[:continent]
-      elsif params.try(:[], :vacancy).try(:[], :continent).present?
-        @continent = params[:vacancy][:continent]
-      else
-        @continent = params.try(:[], :company).try(:[], :continent)
-      end
+    @continent = params[:continent] || params.try(:[], :vacancy).try(:[], :continent) || params.try(:[], :company).try(:[], :continent)
   end
 end
