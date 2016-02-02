@@ -7,7 +7,7 @@ module PublicPart
       end
 
       def create
-        if User.create(user_data.merge(company: Company.new(company_data)))
+        if User.create(user_data.merge(company: Company.new(company_data))).lock_access!
           clear_cookies
           redirect_to root_url, flash: { success: 'Confirmation expected administrator' }
         else
