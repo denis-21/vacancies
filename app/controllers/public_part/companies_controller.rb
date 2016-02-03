@@ -10,12 +10,12 @@ module PublicPart
 
     helper_method :companies
     def companies
-      @companies ||= Company.ordered
+      @companies ||= Company.active.ordered
     end
 
     helper_method :company
     def company
-      @company ||= Company.find(params[:id])
+      @company ||= Company.active.find(params[:id])
     end
   end
 end

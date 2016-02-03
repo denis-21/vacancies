@@ -1,7 +1,6 @@
 .form-group
   = f.label :companies
   = f.collection_select(:company_id, companies, :id, :name)
-  = link_to 'Add new company',new_manage_company_path,class: 'btn btn-sm btn-info'
 .form-group
   = f.label :continent
   = f.select(:continent, continents, { include_blank: 'Select continent' }, class: 'form-control', data: { remote: true, url: url_for( action: :index, controller: '/render_countries') }  )

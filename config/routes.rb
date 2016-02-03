@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :vacancies do
       resources :summaries, only: [:index, :update]
     end
-    resources :companies
+
     resource :profiles, only: [:edit, :update]
     resources :reports, only: [:index]
     resource :reports, only: [] do
@@ -32,6 +32,9 @@ Rails.application.routes.draw do
     end
 
     namespace :admin do
+      resources :companies, exept: [:new, :create] do
+        resource :approves, only: [:update, :destroy]
+      end
       resources :users,        only: [:index]  do
         resource :user_blocks, only: [:create, :destroy]
       end

@@ -1,0 +1,3 @@
+var element = $("[data-id='<%= params[:company_id] %>']")
+element.remove();
+$('.active_comapny > tbody').append("<%= j render ('tr_to_active_table'), company: company %>")
