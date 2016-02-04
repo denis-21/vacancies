@@ -22,5 +22,6 @@
             %li= link_to 'Change Password', edit_user_registration_path(current_user)
             %li= link_to 'Sing out',destroy_user_session_path, method: :delete
       - else
+        %li= link_to 'Create company',new_create_company_steps_companies_path
         %li= link_to 'Sing in',new_user_session_path
         %li= link_to 'Sing up',new_user_registration_path

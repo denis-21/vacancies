@@ -1,0 +1,20 @@
+= render 'public_part/create_company_steps/shared/steps'
+
+.col-md-6
+  %h3 Company data
+  %ul
+    %li= company_data["continent"]
+    %li= company_data["country"]
+    %li= company_data["city"]
+    %li= company_data["name"]
+    %li= company_data["link"]
+
+.col-md-6
+  %h3 User data
+  %ul
+    %li= user_data["email"]
+    %li *****
+
+%br
+.col-md-12
+  =link_to 'Confirm', create_company_steps_confirms_path, method: :post, class: 'btn btn-success'
