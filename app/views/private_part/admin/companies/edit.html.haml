@@ -1,4 +1,4 @@
-%p= link_to 'Back',manage_company_path(company),class: 'btn btn-sm btn-primary'
+%p= link_to 'Back',manage_admin_company_path(company),class: 'btn btn-sm btn-primary'
 .col-md-10
   = render 'shared/error_msg', object: company
   = form_for company,url: manage_admin_company_path, method: :put  do |f|
