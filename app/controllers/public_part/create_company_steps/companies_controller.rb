@@ -17,12 +17,12 @@ module PublicPart
       private
 
       def company_params
-        params.require(:company).permit(:continent, :country, :city, :name, :link, picture_attributes: [:image, :_destroy])
+        params.require(:company).permit(:continent, :country, :city, :name, :link)
       end
 
       helper_method :new_company
       def new_company
-        @company ||= Company.new(JSON.parse(cookies[:companies] || '{}').merge(picture: Picture.new))
+        @company ||= Company.new(JSON.parse(cookies[:companies] || '{}'))
       end
     end
   end
