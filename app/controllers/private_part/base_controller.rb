@@ -8,7 +8,7 @@ module PrivatePart
 
     helper_method :companies
     def companies
-      @companies ||= (current_user.admin ? Company : current_user.companies).all
+      @companies ||= current_user.admin ? Company.all : Company.where(creator_id: current_user)
     end
   end
 end
