@@ -19,18 +19,20 @@ Rails.application.routes.draw do
   end
 
   namespace :manage, module: :private_part do
-    root to: 'vacancies#index'
-
-    resources :vacancies do
-      resources :summaries, only: [:index, :update]
-    end
+    root to: 'companies_admin/vacancies#index'
 
     resource :profiles, only: [:edit, :update]
-    resources :reports, only: [:index]
-    resource :reports, only: [] do
-      resources :vacancies, only: [:show], controller: :vacancies_reports
+
+    scope module: :companies_admin do
+      resources :vacancies do
+        resources :summaries, only: [:index, :update]
+      end
+      resources :reports, only: [:index]
+      resource :reports, only: [] do
+        resources :vacancies, only: [:show], controller: :vacancies_reports
+      end
+      resource :profile_companies, except: [:create, :new, :destroy]
     end
-    resource :profile_companies, except: [:create, :new, :destroy]
 
     namespace :admin do
       resources :companies, except: [:new, :create] do
