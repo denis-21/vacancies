@@ -13,7 +13,6 @@ RSpec.feature 'PageVacancy', type: :feature do
   end
 
   describe 'Visit to vacancy page' do
-
     it 'have title vacancy' do
       expect(vacancy_page).to have_content(vacancy.title)
     end
@@ -23,6 +22,13 @@ RSpec.feature 'PageVacancy', type: :feature do
 
     it 'have city vacancy' do
       expect(vacancy_page).to have_content(vacancy.city)
+    end
+  end
+
+  describe 'visit to page summary vacancy' do
+    scenario 'Click button To send a resume leads to a page new summary' do
+      vacancy_page.button_send_resume.click
+      expect(SummaryNewPage.new).to be_displayed
     end
   end
 end
