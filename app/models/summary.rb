@@ -1,5 +1,6 @@
 class Summary < ActiveRecord::Base
   belongs_to :vacancy
+  belongs_to :user
 
   validates :email, :first_name, :last_name, :file, presence: true
 

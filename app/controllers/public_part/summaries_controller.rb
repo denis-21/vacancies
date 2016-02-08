@@ -19,7 +19,7 @@ module PublicPart
 
     helper_method :new_summary
     def new_summary
-      @summary ||= Summary.new
+      @summary ||= Summary.new(user_id: current_user.try(:id), email: current_user.try(:email), first_name: current_user.try(:first_name), last_name: current_user.try(:last_name))
     end
   end
 end

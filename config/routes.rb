@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'public_part/vacancies#index'
 
   resources :render_countries, only: [:index]
 
@@ -22,6 +21,7 @@ Rails.application.routes.draw do
     root to: 'companies_admin/vacancies#index'
 
     resource :profiles, only: [:edit, :update]
+    resources :summaries_history, only: [:index]
 
     scope module: :companies_admin do
       resources :vacancies do
@@ -56,4 +56,6 @@ Rails.application.routes.draw do
       resources :companies, only: [:index, :show]
     end
   end
+
+  root to: 'public_part/vacancies#index'
 end

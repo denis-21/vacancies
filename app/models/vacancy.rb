@@ -11,7 +11,7 @@ class Vacancy < ActiveRecord::Base
   end)
   scope :active, -> { where('deadline >= ?', Time.zone.today) }
 
-  scope :company_name, lambda {
+  scope :only_company_name, lambda {
     joins('LEFT JOIN companies ON companies.id = vacancies.company_id')
       .select('vacancies.*, companies.name as company_name')
       .group('companies.id')
@@ -22,6 +22,8 @@ class Vacancy < ActiveRecord::Base
       .select('COUNT(summaries.status) as received_st')
       .group('vacancies.id')
   }
+
+  delegate :name, to: :company, prefix: true, allow_nil: true
 
   def status
     deadline < Time.zone.today ? 'stale' : 'live'
