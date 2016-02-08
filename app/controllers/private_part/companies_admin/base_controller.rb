@@ -1,14 +1,12 @@
 module PrivatePart
   module CompaniesAdmin
     class BaseController < PrivatePart::BaseController
-      layout 'admin_application'
-
       before_action :check_user_company!
 
       private
 
       def check_user_company!
-        redirect_to root_url, flash: { error: 'You do not have permission to view' } unless current_user_have_company?
+        redirect_to root_url, flash: { error: 'You do not have permission to view' } unless current_user_have_company? || current_user.admin
       end
 
       helper_method :companies

@@ -13,7 +13,7 @@
     %ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
         %li= link_to 'History summaries', manage_summaries_history_index_path
-        - if current_user_have_company?
+        - if current_user_have_company? || current_user.admin
           %li= link_to 'Administration',manage_root_path
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}

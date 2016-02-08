@@ -29,6 +29,6 @@ class Company < ActiveRecord::Base
   end
 
   def send_email
-    CompanyMailer.send((status << '_email').to_sym, self).deliver_now
+    CompanyMailer.send((status).to_sym, self).deliver_now
   end
 end
