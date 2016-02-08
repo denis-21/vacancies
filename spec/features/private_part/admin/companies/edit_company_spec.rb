@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature 'Update company', type: :feature do
+  let!(:admin) { create :admin_user }
   let!(:user) { create :user }
-  let!(:company) { create :company, creator_id: user.id }
+  let!(:company) { create :company_active, creator_id: user.id }
   let(:edit_company_page) { ManageEditCompanyPage.new }
 
   before do
-    login_as user
+    login_as admin
     edit_company_page.load(id: company.id)
   end
 

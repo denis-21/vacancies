@@ -2,6 +2,7 @@ class ManageNewVacancyPage < SitePrism::Page
   set_url '/manage/vacancies/new'
 
   element :company, "select[name='vacancy[company_id]']"
+  element :continent, "select[name='vacancy[continent]']"
   element :country, "select[name='vacancy[country]']"
   element :city, "input[name='vacancy[city]']"
   element :title, "input[name='vacancy[title]']"

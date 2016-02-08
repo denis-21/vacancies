@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
 
   describe 'associations' do
     it { should have_many(:vacancies) }
-    it { should have_many(:companies) }
+    it { should have_one(:company) }
     it { should have_one(:profile) }
   end
 

@@ -12,8 +12,9 @@ RSpec.feature 'Add new vacancy', type: :feature do
   end
 
   scenario 'when filled with all the data' do
-    add_new_vacancy_page.company.set vacancy_data[:company_id]
-    add_new_vacancy_page.country.set vacancy_data[:country]
+    add_new_vacancy_page.company.select company.name
+    add_new_vacancy_page.continent.select vacancy_data[:continent]
+    add_new_vacancy_page.country.select vacancy_data[:country]
     add_new_vacancy_page.city.set vacancy_data[:city]
     add_new_vacancy_page.title.set vacancy_data[:title]
     add_new_vacancy_page.description.set vacancy_data[:description]

@@ -1,8 +1,7 @@
 require_relative 'companies_section'
 class ManageCompaniesPage < SitePrism::Page
-  set_url '/manage/companies'
+  set_url '/manage/admin/companies'
 
-  element :button_new, '.new_company'
   sections :companies, CompaniesSection, 'table tbody tr'
 
   def click_company(name_company)

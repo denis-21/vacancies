@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature 'ManagePageCopmanies', type: :feature do
+  let!(:admin) { create :admin_user }
   let!(:user) { create :user }
-  let!(:company)  { create :company, creator_id: user.id }
-  let!(:company2) { create :company, creator_id: user.id }
+  let!(:company) { create :company_active, creator_id: user.id }
   let(:manage_companies_page) { ManageCompaniesPage.new }
 
   before do
-    login_as user
+    login_as admin
     manage_companies_page.load
   end
 
@@ -26,13 +26,8 @@ RSpec.feature 'ManagePageCopmanies', type: :feature do
     expect(ManageCompanyPage.new).to be_displayed
   end
 
-  scenario 'Click to button new company leads to a page new company' do
-    manage_companies_page.button_new.click
-    expect(ManageNewCompanyPage.new).to be_displayed
-  end
-
   scenario 'Click delete button' do
-    manage_companies_page.delete_company(company2.name)
-    expect(manage_companies_page).to have_content(company.name)
+    manage_companies_page.delete_company(company.name)
+    expect(manage_companies_page).not_to have_content(company.name)
   end
 end

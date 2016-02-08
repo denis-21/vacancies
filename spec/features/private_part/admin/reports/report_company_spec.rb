@@ -13,8 +13,7 @@ RSpec.feature 'ReportComapny', type: :feature do
     report_company_page.load(id: company.id)
   end
 
-  it 'have canvas data report' do
-    data_report_builder = CompaniesReportBuilder.new(company).by_month_of_year
-    expect(report_company_page.data_report).to eq(data_report_builder.to_json)
+  it 'have canvas' do
+    expect(report_company_page).to have_canvas
   end
 end
