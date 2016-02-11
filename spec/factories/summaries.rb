@@ -6,5 +6,13 @@ FactoryGirl.define do
     first_name  { Faker::Name.first_name }
     last_name   { Faker::Name.last_name }
     file        { fixture_file_upload('spec/support/assets/Screen Shot 2015-12-16 at 09.36.28.pdf', 'application/pdf') }
+
+    factory :summary_accepted do
+      status  { 'accepted' }
+    end
+
+    factory :summary_rejected do
+      status  { 'rejected' }
+    end
   end
 end

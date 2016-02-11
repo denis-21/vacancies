@@ -27,7 +27,7 @@
       %th File
   %tbody
     - summaries.accepted.each do |summary|
-      %tr
+      %tr{ data: { id: summary.id } }
         %td= summary.email
         %td= summary.first_name
         %td= summary.last_name
@@ -43,7 +43,7 @@
       %th File
   %tbody
     - summaries.rejected.each do |summary|
-      %tr
+      %tr{ data: { id: summary.id } }
         %td= summary.email
         %td= summary.first_name
         %td= summary.last_name

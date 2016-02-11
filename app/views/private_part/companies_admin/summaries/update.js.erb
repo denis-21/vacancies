@@ -2,7 +2,7 @@ var element = $("[data-id='<%= summary.id %>']");
 element.remove();
 var accepted_table = $('.accepted_summary > tbody');
 var rejected_table = $('.rejected_summary > tbody');
-var html_tr = "<tr>" +
+var html_tr = "<tr data-id ='<%= summary.id %>'>" +
                 "<td><%= summary.email %></td>" +
                 "<td><%= summary.first_name %></td>" +
                 "<td><%= summary.last_name %></td>"+

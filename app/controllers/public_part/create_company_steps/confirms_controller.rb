@@ -19,8 +19,10 @@ module PublicPart
 
       def check_data
         if cookies[:companies].blank?
+          cookies[:step] = 'companies'
           redirect_to new_create_company_steps_companies_url
         elsif cookies[:users].blank?
+          cookies[:step] = 'users'
           redirect_to new_create_company_steps_users_url
         end
       end
