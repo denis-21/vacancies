@@ -76,6 +76,15 @@ RSpec.feature 'CreateCompany', type: :feature do
       confirm_step_page.confim_button.click
       expect(page).to have_content('Confirmation expected administrator')
     end
+
+    scenario 'Delete copmaies cookie and click button confirm' do
+      page.driver.browser.clear_cookies
+      page.driver.browser.set_cookie("companies=#{CGI.escape(companies_data.except(:name).to_json)}")
+      page.driver.browser.set_cookie("users=#{CGI.escape(user_data.to_json)}")
+      page.driver.browser.set_cookie("step=#{CGI.escape('confirms')}")
+      confirm_step_page.confim_button.click
+      expect(confirm_step_page).to have_content('Company is invalid')
+    end
   end
 
   describe 'Confirms step right after companies ' do

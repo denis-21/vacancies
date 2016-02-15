@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'AllSummariesToVacancy', type: :feature do
-  let!(:manager) { create :user }
-  let!(:company) { create :company, creator_id: manager.id }
+  let!(:manager)  { create :user_with_company }
+  let!(:company)  { manager.company }
   let!(:vacancy) { create :vacancy, company: company, creator_id: manager.id }
   let!(:summary) { create :summary, vacancy: vacancy }
   let!(:summary_accepted) { create :summary_accepted, vacancy: vacancy }

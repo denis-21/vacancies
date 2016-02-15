@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'ProfileComapny', type: :feature do
-  let!(:manager)  { create :user }
-  let!(:company)  { create :company_active, creator_id: manager.id }
+  let!(:manager)  { create :user_with_company }
+  let!(:company)  { manager.company }
   let!(:vacancy)  { create :vacancy, company: company, creator_id: manager.id  }
   let!(:vacancy2) { create :vacancy, company: company, creator_id: manager.id  }
 

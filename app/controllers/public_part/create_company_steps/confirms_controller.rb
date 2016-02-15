@@ -7,7 +7,7 @@ module PublicPart
       end
 
       def create
-        if User.create(user_data.merge(company: Company.new(company_data))).lock_access!
+        if user.update_attributes(company: company)
           clear_cookies
           redirect_to root_url, flash: { success: 'Confirmation expected administrator' }
         else
@@ -19,11 +19,9 @@ module PublicPart
 
       def check_data
         if cookies[:companies].blank?
-          cookies[:step] = 'companies'
-          redirect_to new_create_company_steps_companies_url
+          rediret_to_step('companies')
         elsif cookies[:users].blank?
-          cookies[:step] = 'users'
-          redirect_to new_create_company_steps_users_url
+          rediret_to_step('users')
         end
       end
 
@@ -34,14 +32,14 @@ module PublicPart
         cookies.delete :step
       end
 
-      helper_method :company_data
-      def company_data
-        @company_data ||= JSON.parse(cookies[:companies])
+      helper_method :company
+      def company
+        @company ||= Company.new(JSON.parse(cookies[:companies]))
       end
 
-      helper_method :user_data
-      def user_data
-        @user_data ||= JSON.parse(cookies[:users])
+      helper_method :user
+      def user
+        @user ||= User.new(JSON.parse(cookies[:users]).merge(locked_at: Time.zone.now))
       end
     end
   end

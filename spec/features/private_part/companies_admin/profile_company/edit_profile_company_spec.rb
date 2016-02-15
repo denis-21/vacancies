@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'EditProfileCompany', type: :feature do
-  let!(:manager)  { create :user }
-  let!(:company)  { create :company_active, creator_id: manager.id }
+  let!(:manager)  { create :user_with_company }
   let(:edit_profile_company_page) { EditProfileCompanyPage.new }
 
   before do

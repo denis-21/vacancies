@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature 'Add new vacancy', type: :feature do
-  let!(:user) { create :user }
-  let!(:company) { create :company, creator_id: user.id }
+  let!(:manager)  { create :user_with_company }
+  let!(:company)  { manager.company }
   let!(:vacancy_data) { attributes_for :vacancy, company_id: company.id }
   let(:add_new_vacancy_page) { ManageNewVacancyPage.new }
 
   before do
-    login_as user
+    login_as manager
     add_new_vacancy_page.load
   end
 
