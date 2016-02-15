@@ -61,7 +61,7 @@ RSpec.feature 'AllSummariesToVacancy', type: :feature do
     end
   end
 
-  describe 'action on this page', js: true do
+  describe 'action on this page' , js: true do
     let(:new_summary) { all_summaries_page.new_summary(summary.id) }
 
     scenario 'click to button accept' do

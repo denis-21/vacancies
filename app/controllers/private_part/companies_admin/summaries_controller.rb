@@ -9,7 +9,7 @@ module PrivatePart
           if summary.update_status(params[:status])
             format.js { render layout: false }
           else
-            format.js { render nothing: true }
+            format.js { render nothing: true, status: 204 }
           end
         end
       end
