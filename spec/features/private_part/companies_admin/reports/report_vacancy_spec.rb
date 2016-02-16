@@ -16,4 +16,12 @@ RSpec.feature 'ReportVacancy', type: :feature do
   it 'have canvas' do
     expect(report_vacancy_page).to have_canvas
   end
+
+  scenario 'select period and set start,end day and click build button', js: true do
+    report_vacancy_page.type_by_period.set true
+    report_vacancy_page.star_day.set '09.01.2016'
+    report_vacancy_page.end_day.set '09.02.2016'
+    report_vacancy_page.button_build.click
+    expect(report_vacancy_page).to have_canvas
+  end
 end
