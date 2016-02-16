@@ -42,7 +42,7 @@ module PrivatePart
 
       helper_method :vacancies
       def vacancies
-        @vacancies ||= (current_user.admin ? Vacancy : current_user.vacancies).company_name.summaries_received_states
+        @vacancies ||= (current_user.admin ? Vacancy : current_user.vacancies).only_company_name.summaries_received_states
       end
 
       helper_method :vacancy

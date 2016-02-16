@@ -1,0 +1,21 @@
+%table.table.table-striped.table-bordered.new_summary
+  %thead
+    %tr
+      %th Vacancy
+      %th Comapny
+      %th File
+      %th Status
+      %th Email
+      %th First Name
+      %th Last Name
+  %tbody
+    - summaries.each do |summary|
+      %tr{ data: { id: summary.id } }
+        %td= summary.vacancy.title
+        %td= summary.vacancy.company_name
+        %td= link_to 'download', summary.file.url(:original, false)
+        %td= summary.status
+        %td= summary.email
+        %td= summary.first_name
+        %td= summary.last_name
+

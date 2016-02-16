@@ -1,5 +1,6 @@
 class Summary < ActiveRecord::Base
   belongs_to :vacancy
+  belongs_to :user
 
   validates :email, :first_name, :last_name, :file, presence: true
 
@@ -30,10 +31,10 @@ class Summary < ActiveRecord::Base
   end
 
   def send_email
-    SummaryMailer.send((status << '_email').to_sym, self, vacancy.creator).deliver_now
+    SummaryMailer.send((status).to_sym, self, vacancy.creator).deliver_now
   end
 
   def full_name
-    first_name + last_name
+    first_name + ' ' + last_name
   end
 end

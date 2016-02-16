@@ -1,13 +1,13 @@
 class CompanyMailer < ApplicationMailer
-  def disable_email(company)
+  def disable(company)
     send_email(company, 'Create company')
   end
 
-  def active_email(company)
+  def active(company)
     send_email(company, 'Activate company')
   end
 
-  def reject_email(company)
+  def reject(company)
     send_email(company, 'Rejected company')
   end
 
