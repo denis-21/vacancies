@@ -12,7 +12,7 @@ module PrivatePart
 
       def create
         if new_external_client.update_attributes(external_client_params)
-          redirect_to manage_admin_external_client_url external_client
+          redirect_to admin_external_client_url external_client
         else
           render :new
         end
@@ -20,7 +20,7 @@ module PrivatePart
 
       def destroy
         external_client.destroy
-        redirect_to :manage_admin_external_clients
+        redirect_to :admin_external_clients
       end
 
       private

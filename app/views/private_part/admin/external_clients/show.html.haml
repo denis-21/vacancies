@@ -1,5 +1,5 @@
 .col-md-12.margin_bottom
-  = link_to 'delete', manage_admin_external_client_path(external_client), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger pull-right'
+  = link_to 'delete', admin_external_client_path(external_client), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger pull-right'
 .col-md-12
   %ul
     %li= external_client.name

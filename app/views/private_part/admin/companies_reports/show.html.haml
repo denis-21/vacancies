@@ -1,5 +1,5 @@
 .col-md-10.type_build_report
-  = form_tag(manage_admin_reports_company_path(params[:id]), method: :get, remote: true, class: 'form-inline') do
+  = form_tag(admin_reports_company_path(params[:id]), method: :get, remote: true, class: 'form-inline') do
     %label
       %input{ type: 'radio', name: 'type_company_report', value: :month_year, checked: :checked }/
       Report month of year

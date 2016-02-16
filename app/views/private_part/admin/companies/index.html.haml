@@ -10,10 +10,10 @@
   %tbody
     - companies.active.each do |company|
       %tr
-        %td= link_to company.name, manage_admin_company_path(company)
+        %td= link_to company.name, admin_company_path(company)
         %td= company.link
         %td= company.vacancies.size
-        %td= link_to 'delete', manage_admin_company_path(company), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
+        %td= link_to 'delete', admin_company_path(company), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
 
 %br
 %h3 The company expects confirmation
@@ -28,7 +28,7 @@
   %tbody
     - companies.disable.each do |company|
       %tr{ data: { id: company.id } }
-        %td= link_to company.name, manage_admin_company_path(company)
+        %td= link_to company.name, admin_company_path(company)
         %td= company.link
-        %td= link_to 'Active', manage_admin_company_approves_path(company), method: :put, remote: true, class: 'btn btn-sm btn-success'
-        %td= link_to 'Delete', manage_admin_company_approves_path(company), method: :delete, remote: true, class: 'btn btn-sm btn-danger'
+        %td= link_to 'Active', admin_company_approves_path(company), method: :put, remote: true, class: 'btn btn-sm btn-success'
+        %td= link_to 'Delete', admin_company_approves_path(company), method: :delete, remote: true, class: 'btn btn-sm btn-danger'

@@ -3,7 +3,7 @@
   .panel-heading
     %h4 New external client
   .panel-body
-    = form_for new_external_client, url: manage_admin_external_clients_path, method: :post  do |f|
+    = form_for new_external_client, url: admin_external_clients_path, method: :post  do |f|
       .col-md-8
         .form-group
           = f.label :name
