@@ -1,8 +1,6 @@
 .col-md-12.margin_bottom
-  = link_to 'Back',manage_companies_path,class: 'btn btn-sm btn-primary'
-  = link_to 'Edit',edit_manage_company_path(company),class: 'btn btn-sm btn-warning'
-  = link_to 'delete',manage_company_path(company),method: :delete,data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-danger pull-right'
-.col-md-12.block_show
+  = link_to 'Back', :back, class: 'btn btn-sm btn-primary'
+  = link_to 'Edit',edit_manage_profile_companies_path,class: 'btn btn-sm btn-warning'
   .col-md-12
     .col-md-10
       %h1= company.name

@@ -9,12 +9,13 @@
   #navbar.navbar-collapse.collapse
     %ul.nav.navbar-nav
       %li= link_to 'All vacansies', manage_vacancies_path
-      %li= link_to 'All company', manage_companies_path
       - if current_user.admin
+        %li= link_to 'All company', manage_admin_companies_path
         %li= link_to 'Users', manage_admin_users_path
         %li= link_to 'Api clients', manage_admin_external_clients_path
         %li= link_to 'Reports', manage_admin_reports_path
       -else
+        %li= link_to 'Profile Comapny', manage_profile_companies_path
         %li= link_to 'Reports', manage_reports_path
     %ul.nav.navbar-nav.navbar-right
       %li= link_to 'Site',root_path

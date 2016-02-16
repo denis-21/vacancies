@@ -6,10 +6,7 @@ module PrivatePart
       private
 
       def admin?
-        unless current_user.admin
-          flash[:error] = 'You do not have permission to view'
-          redirect_to manage_root_url
-        end
+        redirect_to manage_root_url, flash: { error: 'You do not have permission to view' } unless current_user.admin
       end
     end
   end

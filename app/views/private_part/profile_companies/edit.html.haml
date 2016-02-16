@@ -1,0 +1,8 @@
+%p= link_to 'Back', :back, class: 'btn btn-sm btn-primary'
+.col-md-10
+  = render 'shared/error_msg', object: company
+  = form_for company, url: manage_profile_companies_path, method: :put  do |f|
+    = render 'private_part/admin/companies/form', f: f
+    .col-md-8
+      .form-group
+        = f.submit 'Update', class: 'btn btn-success'

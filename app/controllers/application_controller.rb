@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
   def continents
     @continents ||= ISO3166::Country.all.map(&:continent).uniq.sort!
   end
+
+  helper_method :current_user_have_company?
+  def current_user_have_company?
+    current_user.company.present?
+  end
 end

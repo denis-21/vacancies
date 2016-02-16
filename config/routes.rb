@@ -24,14 +24,18 @@ Rails.application.routes.draw do
     resources :vacancies do
       resources :summaries, only: [:index, :update]
     end
-    resources :companies
+
     resource :profiles, only: [:edit, :update]
     resources :reports, only: [:index]
     resource :reports, only: [] do
       resources :vacancies, only: [:show], controller: :vacancies_reports
     end
+    resource :profile_companies, except: [:create, :new, :destroy]
 
     namespace :admin do
+      resources :companies, except: [:new, :create] do
+        resource :approves, only: [:update, :destroy]
+      end
       resources :users,        only: [:index]  do
         resource :user_blocks, only: [:create, :destroy]
       end

@@ -8,7 +8,7 @@ module PrivatePart
 
       helper_method :users
       def users
-        @users ||= User.eager_load(:companies, :vacancies).ordered
+        @users ||= User.eager_load(:company, :vacancies).ordered
       end
     end
   end
