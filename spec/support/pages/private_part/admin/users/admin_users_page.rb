@@ -2,8 +2,6 @@ require_relative 'users_section'
 class AdminUsersPage < SitePrism::Page
   set_url '/manage/admin/users'
 
-  elements :users_email, 'table tbody tr td:first'
-
   sections :users, UsersSection, 'table tbody tr'
 
   def click_block_user(email_user)

@@ -9,7 +9,7 @@ module PrivatePart
 
       def update
         if company.update_attributes company_params
-          redirect_to manage_companies_url
+          redirect_to manage_profile_companies_url
         else
           render :edit
         end

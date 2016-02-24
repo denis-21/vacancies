@@ -11,16 +11,19 @@ RSpec.feature 'AdminUsersPage', type: :feature do
   describe 'Visit to users page' do
     let!(:user1) { create :user }
     let!(:user2) { create :user }
+    let!(:company) { create :company_active, creator_id: user1.id  }
+    let!(:company2) { create :company_active, creator_id: user2.id }
 
     before { admin_users_page.load }
 
     it 'have content Email/Login User' do
-      expect(admin_users_page.users_email).to match_array(User.pluck(:email))
+      expect(admin_users_page.users_email).to match_array([user1.email, user2.email])
     end
   end
 
   context 'When present unblock user' do
     let!(:user1) { create :user }
+    let!(:company) { create :company, creator_id: user1.id, status: 'active' }
 
     before { admin_users_page.load }
 
@@ -32,6 +35,7 @@ RSpec.feature 'AdminUsersPage', type: :feature do
 
   context 'When present block user' do
     let!(:user1) { create :user, locked_at: Time.zone.today }
+    let!(:company) { create :company, creator_id: user1.id, status: 'active' }
 
     before { admin_users_page.load }
 

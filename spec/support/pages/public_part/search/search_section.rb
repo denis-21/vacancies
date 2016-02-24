@@ -1,5 +1,6 @@
 class SearchSection < SitePrism::Section
   element :select_company, "#company_id"
+  element :select_continent, "#continent"
   element :select_country, "#country"
   element :search_field_city, "#city"
   element :search_button, "input[value='Search']"

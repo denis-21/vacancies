@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.feature "PageVacancies", type: :feature do
+RSpec.feature 'PageVacancies', type: :feature do
   let!(:company)  { create :company }
   let!(:company2) { create :company }
 
-  let!(:vacancy)  { create :vacancy,company:company }
-  let!(:vacancy2) { create :vacancy,company:company2 }
+  let!(:vacancy)  { create :vacancy, company: company }
+  let!(:vacancy2) { create :vacancy, company: company2 }
 
   let(:vacancies_page) { VacanciesPage.new }
 
@@ -14,7 +14,6 @@ RSpec.feature "PageVacancies", type: :feature do
   end
 
   describe 'Visit to vacancies page' do
-
     it 'have element to vacancies page' do
       expect(vacancies_page).to be_all_there
     end

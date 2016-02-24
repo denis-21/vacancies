@@ -51,6 +51,7 @@ RSpec.configure do |config|
 
   config.include JsonHelpers, type: :request
   config.include ActionDispatch::TestProcess, type: :feature
+  config.include WaitForAjaxFinishing, type: :feature
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -74,6 +75,7 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
+  config.include Devise::TestHelpers, :type => :controller
 
   config.include Warden::Test::Helpers
   config.before :suite do
@@ -110,4 +112,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  Capybara::Webkit.configure do |config|
+    config.block_unknown_urls
+  end
 end

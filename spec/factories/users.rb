@@ -8,5 +8,9 @@ FactoryGirl.define do
     factory :admin_user do
       admin true
     end
+
+    factory :user_with_company do
+      association :company, factory: :company_active
+    end
   end
 end

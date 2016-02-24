@@ -4,8 +4,9 @@ FactoryGirl.define do
     description  { Faker::Lorem.paragraph }
     city         { Faker::Address.city }
     country      { ISO3166::Country.all.map(&:name).sample }
-    deadline     { Date.today + (1..5).to_a.sample.days }
-    creator_id   { create(:user) }
+    continent    { ISO3166::Country.all.map(&:continent).uniq.sort!.sample }
+    deadline     { Time.zone.today + (1..5).to_a.sample.days }
+    creator_id   { create(:user).id }
 
     trait :with_company do
       company

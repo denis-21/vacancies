@@ -8,12 +8,16 @@ module PublicPart
       def next_step(step_params)
         cookies[controller_name.to_sym] = { value: step_params.to_json }
         step_next = STEPS[STEPS.index(controller_name) + 1]
-        cookies[:step] = step_next
-        redirect_to setup_step_path(step_next)
+        rediret_to_step(step_next)
       end
 
       def set_start_cookies
         cookies[:step] ||= STEPS.first
+      end
+
+      def rediret_to_step(step)
+        cookies[:step] = step
+        redirect_to setup_step_path(step)
       end
 
       helper_method :steps

@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :summaries
 
+  validates_associated :company
+
   scope :ordered, -> { order(id: :asc) }
 
   delegate :first_name, :last_name, to: :profile, prefix: false, allow_nil: true

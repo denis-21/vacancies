@@ -3,7 +3,9 @@ class ReportCompanyPage < SitePrism::Page
 
   element :canvas, 'canvas'
 
-  def data_report
-    canvas['data-report']
-  end
+  element :type_by_month_year, "input[value='month_year']"
+  element :type_by_period, "input[value='period']"
+  element :star_day, "input[name='company_report_start_day']"
+  element :end_day, "input[name='company_report_end_day']"
+  element :button_build, "input[type='submit']"
 end
