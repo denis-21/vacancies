@@ -1,5 +1,5 @@
 class AllExternalClients < SitePrism::Page
-  set_url '/manage/admin/external_clients'
+  set_url '/admin/external_clients'
 
   element :button_new, '.new_ext_client'
   elements :client_links, 'table tbody tr td:first a'

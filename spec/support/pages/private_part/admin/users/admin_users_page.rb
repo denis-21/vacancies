@@ -1,6 +1,6 @@
 require_relative 'users_section'
 class AdminUsersPage < SitePrism::Page
-  set_url '/manage/admin/users'
+  set_url '/admin/users'
 
   sections :users, UsersSection, 'table tbody tr'
 

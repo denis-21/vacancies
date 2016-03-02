@@ -1,5 +1,5 @@
 class ShowAllReportsPage < SitePrism::Page
-  set_url '/manage/admin/reports'
+  set_url '/admin/reports'
 
   section :companies_reports, CompaniesReportsSection, '.companies_reports'
 

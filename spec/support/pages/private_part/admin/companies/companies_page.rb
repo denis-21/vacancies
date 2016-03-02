@@ -1,7 +1,7 @@
 require_relative 'companies_section'
 require_relative 'companies_disable_section'
 class ManageCompaniesPage < SitePrism::Page
-  set_url '/manage/admin/companies'
+  set_url '/admin/companies'
 
   sections :companies_active, CompaniesSection, 'table.active_comapny tbody tr'
   sections :companies_disable, CompaniesDisableSection, 'table.disable_company tbody tr'

@@ -1,5 +1,5 @@
 class NewExternalClient < SitePrism::Page
-  set_url '/manage/admin/external_clients/new'
+  set_url '/admin/external_clients/new'
 
   element :name, "input[name='external_client[name]']"
   element :description, "input[name='external_client[description]']"

@@ -1,4 +1,4 @@
-%p= link_to 'Add new Client', new_manage_admin_external_client_path, method: :get, class: "btn btn-info new_ext_client"
+%p= link_to 'Add new Client', new_admin_external_client_path, method: :get, class: "btn btn-info new_ext_client"
 %table.table.table-striped.table-bordered
   %thead
     %tr
@@ -8,6 +8,6 @@
     - external_clients.each do |client|
       %tr
         %td
-          = link_to client.name, manage_admin_external_client_path(client)
+          = link_to client.name, admin_external_client_path(client)
         %td
-          = link_to 'delete', manage_admin_external_client_path(client),method: :delete,data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-danger'
+          = link_to 'delete', admin_external_client_path(client),method: :delete,data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-danger'

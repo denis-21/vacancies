@@ -12,7 +12,7 @@ module PrivatePart
 
       def update
         if company.update_attributes company_params
-          redirect_to manage_admin_company_url company
+          redirect_to admin_company_url company
         else
           render :edit
         end
@@ -20,7 +20,7 @@ module PrivatePart
 
       def destroy
         company.destroy
-        redirect_to :manage_admin_companies
+        redirect_to :admin_companies
       end
 
       private

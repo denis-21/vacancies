@@ -1,5 +1,5 @@
 class ManageEditCompanyPage < SitePrism::Page
-  set_url '/manage/admin/companies/{id}/edit'
+  set_url '/admin/companies/{id}/edit'
 
   element :name, "input[name='company[name]']"
   element :link, "input[name='company[link]']"

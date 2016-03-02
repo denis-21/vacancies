@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   end
 
   namespace :manage, module: :private_part do
-    root to: 'companies_admin/vacancies#index'
-
     resource :profiles, only: [:edit, :update]
     resources :summaries_history, only: [:index]
 
@@ -34,21 +32,26 @@ Rails.application.routes.draw do
       resource :profile_companies, except: [:create, :new, :destroy]
     end
 
-    namespace :admin do
-      resources :companies, except: [:new, :create] do
-        resource :approves, only: [:update, :destroy]
-      end
-      resources :users,        only: [:index]  do
-        resource :user_blocks, only: [:create, :destroy]
-      end
-      resources :external_clients, except: [:edit, :update]
-
-      resources :reports, only: [:index]
-      resource :reports, only: [] do
-        resources :companies, only: [:show], controller: :companies_reports
-      end
-    end
+    root to: 'companies_admin/vacancies#index'
   end
+
+  namespace :admin, module: 'private_part/admin' do
+    resources :companies, except: [:new, :create] do
+      resource :approves, only: [:update, :destroy]
+    end
+    resources :users,        only: [:index]  do
+      resource :user_blocks, only: [:create, :destroy]
+    end
+    resources :external_clients, except: [:edit, :update]
+
+    resources :reports, only: [:index]
+    resource :reports, only: [] do
+      resources :companies, only: [:show], controller: :companies_reports
+    end
+
+    root to: 'companies#index'
+  end
+
 
   namespace :api do
     namespace :v1 do
